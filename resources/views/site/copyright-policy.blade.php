@@ -1,7 +1,7 @@
-@extends('client.layouts.app')
-@section('title', 'Copyright Policy | QuickDials - Content Usage & Protection Policy')
-@section('description', 'Read the QuickDials Copyright Policy to understand content ownership, intellectual property rights, permitted usage, copyright infringement reporting, and protection of digital content published on QuickDials.')
-@section('keywords', 'QuickDials copyright policy, copyright protection, intellectual property rights, content usage policy, digital copyright, copyright infringement, website content protection, QuickDials legal policy, business listing content policy, online content rights')
+@extends('site.layouts.app')
+@section('title', 'Copyright Policy | WebSolutionTechnology - Content Usage & Protection Policy')
+@section('description', 'Read the WebSolutionTechnology Copyright Policy to understand content ownership, intellectual property rights, permitted usage, copyright infringement reporting, and protection of digital content published on WebSolutionTechnology.')
+@section('keywords', 'WebSolutionTechnology copyright policy, copyright protection, intellectual property rights, content usage policy, digital copyright, copyright infringement, website content protection, WebSolutionTechnology legal policy, business listing content policy, online content rights')
 @section('content')
 
 @php
@@ -44,345 +44,376 @@
     ];
 @endphp
 
-<div x-data="copyrightPage()" x-init="init()" class="min-h-screen bg-gray-50">
+<div class="copyright-page bg-light min-vh-100">
 
     {{-- Hero --}}
-    <div class="relative overflow-hidden border-b border-violet-100"
-         style="background: linear-gradient(135deg, hsl(270 50% 95%) 0%, hsl(290 60% 96%) 50%, hsl(250 45% 95%) 100%);">
-
-        <div class="max-w-6xl mx-auto px-6 py-20 text-center">
-            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold mb-6 animate-fade-in-up bg-violet-500/10 text-violet-700 border border-violet-500/20">
+    <div class="copyright-hero position-relative border-bottom">
+        <div class="container text-center py-5 py-md-5">
+            <div class="d-inline-flex align-items-center gap-2 px-3 py-2 rounded-pill mb-4 hero-badge">
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
                 </svg>
-                Legal Documentation
+                <span class="small font-weight-bold">Legal Documentation</span>
             </div>
 
-            <h1 class="text-5xl md:text-6xl font-black mb-4 leading-tight animate-fade-in-up" style="animation-delay: 100ms">
-                <span class="text-violet-900">Copyrights &</span>
+            <h1 class="display-4 font-weight-bold mb-3">
+                <span class="text-dark">Copyrights &amp;</span>
                 <span class="shimmer-text">Policy</span>
             </h1>
 
-            <p class="text-lg max-w-2xl mx-auto mb-8 text-violet-700/70 animate-fade-in-up" style="animation-delay: 200ms">
-                QuickDials Pvt Ltd — Comprehensive policies governing the use of our training and certification services.
+            <p class="lead mx-auto mb-4 hero-subtext" style="max-width: 640px;">
+                WebSolutionTechnology Pvt Ltd — Comprehensive policies governing the use of our training and certification services.
             </p>
 
-            <div class="flex items-center justify-center gap-6 text-sm text-violet-700/60 animate-fade-in-up" style="animation-delay: 300ms">
-                <div class="flex items-center gap-2">
-                    <div class="w-2 h-2 rounded-full bg-violet-500"></div>
+            <div class="d-flex align-items-center justify-content-center flex-wrap" style="gap: 1.5rem;">
+                <div class="d-flex align-items-center small hero-meta">
+                    <span class="dot dot-violet mr-2"></span>
                     Last updated: April 2026
                 </div>
-                <div class="flex items-center gap-2">
-                    <div class="w-2 h-2 rounded-full bg-fuchsia-500"></div>
+                <div class="d-flex align-items-center small hero-meta">
+                    <span class="dot dot-fuchsia mr-2"></span>
                     Effective immediately
                 </div>
             </div>
         </div>
 
         {{-- Decorative wave --}}
-        <svg class="absolute bottom-0 left-0 right-0 w-full" viewBox="0 0 1440 40" fill="none" preserveAspectRatio="none">
+        <svg class="hero-wave" viewBox="0 0 1440 40" fill="none" preserveAspectRatio="none">
             <path d="M0 40 C360 0 1080 0 1440 40 L1440 40 L0 40Z" fill="#fafaf9"></path>
         </svg>
     </div>
 
     {{-- Main content --}}
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-24 pt-10">
-        <div class="flex flex-col lg:flex-row gap-10">
+    <div class="container py-5" data-spy="scroll" data-target="#copyright-toc" data-offset="90">
+        <div class="row">
 
             {{-- Sidebar TOC --}}
-            <aside class="lg:w-64 flex-shrink-0">
-                <div class="lg:sticky lg:top-24">
-                    <div class="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm">
-                        <p class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4">Table of Contents</p>
-                        <nav class="space-y-1">
-                            @foreach($sections as $section)
-                            <button type="button"
-                                    @click="scrollToSection('{{ $section['id'] }}')"
-                                    :class="activeSection === '{{ $section['id'] }}'
-                                        ? 'bg-violet-50 text-violet-700 font-semibold'
-                                        : 'text-gray-500 hover:bg-gray-50 hover:text-gray-900'"
-                                    class="w-full flex items-center gap-3 text-sm px-3 py-2.5 rounded-lg text-left transition-all duration-200">
-                                <span :class="activeSection === '{{ $section['id'] }}' ? 'text-violet-600' : 'text-gray-400'">
-                                    @include('client.icons.' . $section['icon'], ['class' => 'w-4 h-4 flex-shrink-0'])
-                                </span>
-                                <span>{{ $section['title'] }}</span>
-                            </button>
-                            @endforeach
-                        </nav>
+            <aside class="col-lg-3 mb-4">
+                <div class="sticky-toc">
+                    <div class="card border rounded-lg shadow-sm">
+                        <div class="card-body">
+                            <p class="text-uppercase font-weight-bold small text-muted mb-3" style="letter-spacing: 0.08em; font-size: .7rem;">
+                                Table of Contents
+                            </p>
+                            <nav id="copyright-toc" class="nav flex-column toc-nav">
+                                @foreach($sections as $section)
+                                <a class="nav-link toc-link d-flex align-items-center" href="#{{ $section['id'] }}">
+                                    <span class="toc-icon mr-2">
+                                        @include('site.icons.' . $section['icon'], ['class' => 'icon-sm'])
+                                    </span>
+                                    <span>{{ $section['title'] }}</span>
+                                </a>
+                                @endforeach
+                            </nav>
+                        </div>
                     </div>
 
                     {{-- Quick Stats Card --}}
-                    <div class="mt-4 bg-gradient-to-br from-violet-100 to-fuchsia-50 border border-violet-200 rounded-2xl p-5">
-                        <p class="text-xs font-bold uppercase tracking-widest text-violet-600 mb-4">Policy Summary</p>
-                        <div class="space-y-3">
-                            @foreach([
-                                ['Copyright Owner', 'QuickDials Pvt Ltd'],
-                                ['Scope', 'Global'],
-                                ['Takedown', '30 days'],
-                                ['Jurisdiction', 'India'],
-                            ] as [$label, $value])
-                            <div class="flex justify-between items-center text-sm">
-                                <span class="text-gray-500">{{ $label }}</span>
-                                <span class="font-semibold text-gray-900">{{ $value }}</span>
+                    <div class="card border rounded-lg mt-3 summary-card">
+                        <div class="card-body">
+                            <p class="text-uppercase font-weight-bold small text-violet mb-3" style="letter-spacing: 0.08em; font-size: .7rem;">
+                                Policy Summary
+                            </p>
+                            <div>
+                                @foreach([
+                                    ['Copyright Owner', 'WebSolutionTechnology Pvt Ltd'],
+                                    ['Scope', 'Global'],
+                                    ['Takedown', '30 days'],
+                                    ['Jurisdiction', 'India'],
+                                ] as [$label, $value])
+                                <div class="d-flex justify-content-between align-items-center small mb-2">
+                                    <span class="text-muted">{{ $label }}</span>
+                                    <span class="font-weight-bold text-dark">{{ $value }}</span>
+                                </div>
+                                @endforeach
                             </div>
-                            @endforeach
                         </div>
                     </div>
                 </div>
             </aside>
 
             {{-- Policy content --}}
-            <main class="flex-1 min-w-0 space-y-8">
+            <main class="col-lg-9">
 
                 {{-- Section 1 - Introduction --}}
-                <section id="intro" x-intersect:enter="$el.classList.add('revealed')"
-                         class="reveal bg-white border border-gray-200 rounded-2xl p-8 shadow-sm">
-                    <div class="flex items-center gap-3 mb-6">
-                        <div class="w-10 h-10 rounded-xl bg-violet-100 flex items-center justify-center text-violet-600">
-                            @include('client.icons.book-open', ['class' => 'w-5 h-5'])
+                <section id="intro" class="policy-card card border rounded-lg shadow-sm mb-4">
+                    <div class="card-body p-4 p-md-5">
+                        <div class="d-flex align-items-center mb-4">
+                            <div class="icon-box icon-box-violet mr-3">
+                                @include('site.icons.book-open', ['class' => 'icon-md'])
+                            </div>
+                            <h2 class="h4 font-weight-bold text-dark mb-0">Introduction</h2>
                         </div>
-                        <h2 class="text-xl font-bold text-gray-900">Introduction</h2>
-                    </div>
-                    <div class="space-y-4 text-gray-600 leading-relaxed">
-                        <p>
-                            QuickDials Pvt Ltd (<strong class="text-gray-900">"QuickDials"</strong>,
-                            <strong class="text-gray-900">"we"</strong>, <strong class="text-gray-900">"us"</strong>,
-                            or <strong class="text-gray-900">"our"</strong>) respects the intellectual property rights of others
-                            and expects users of our platform to do the same.
-                        </p>
-                        <p>
-                            This Copyright Policy explains how we handle copyright-related matters on the QuickDials platform,
-                            including our procedures for addressing claims of copyright infringement and the rights and
-                            responsibilities of our users regarding intellectual property.
-                        </p>
-                        <p>
-                            By accessing or using the QuickDials platform, you agree to comply with this Copyright Policy.
-                            If you do not agree with any part of this policy, you must not use our services.
-                        </p>
+                        <div class="policy-text text-secondary">
+                            <p>
+                                WebSolutionTechnology Pvt Ltd (<strong class="text-dark">"WebSolutionTechnology"</strong>,
+                                <strong class="text-dark">"we"</strong>, <strong class="text-dark">"us"</strong>,
+                                or <strong class="text-dark">"our"</strong>) respects the intellectual property rights of others
+                                and expects users of our platform to do the same.
+                            </p>
+                            <p>
+                                This Copyright Policy explains how we handle copyright-related matters on the WebSolutionTechnology platform,
+                                including our procedures for addressing claims of copyright infringement and the rights and
+                                responsibilities of our users regarding intellectual property.
+                            </p>
+                            <p class="mb-0">
+                                By accessing or using the WebSolutionTechnology platform, you agree to comply with this Copyright Policy.
+                                If you do not agree with any part of this policy, you must not use our services.
+                            </p>
+                        </div>
                     </div>
                 </section>
 
                 {{-- Section 2 - IP Ownership --}}
-                <section id="ownership" x-intersect:enter="$el.classList.add('revealed')"
-                         class="reveal bg-white border border-gray-200 rounded-2xl p-8 shadow-sm">
-                    <div class="flex items-center gap-3 mb-6">
-                        <div class="w-10 h-10 rounded-xl bg-violet-100 flex items-center justify-center text-violet-600">
-                            @include('client.icons.shield', ['class' => 'w-5 h-5'])
+                <section id="ownership" class="policy-card card border rounded-lg shadow-sm mb-4">
+                    <div class="card-body p-4 p-md-5">
+                        <div class="d-flex align-items-center mb-4">
+                            <div class="icon-box icon-box-violet mr-3">
+                                @include('site.icons.shield', ['class' => 'icon-md'])
+                            </div>
+                            <h2 class="h4 font-weight-bold text-dark mb-0">Intellectual Property Rights</h2>
                         </div>
-                        <h2 class="text-xl font-bold text-gray-900">Intellectual Property Rights</h2>
-                    </div>
-                    <div class="space-y-4 text-gray-600 leading-relaxed">
-                        <p>
-                            The QuickDials platform and all of its original content, features, and functionality are owned by
-                            QuickDials Pvt Ltd and are protected by international copyright, trademark, patent, trade secret,
-                            and other intellectual property or proprietary rights laws.
-                        </p>
-                        <p>
-                            Unless explicitly stated otherwise, you may not reproduce, distribute, create derivative works of,
-                            publicly display, publicly perform, republish, download, store, or transmit any of the material on
-                            our platform without prior written consent from QuickDials Pvt Ltd.
-                        </p>
-                        <div class="bg-violet-50 border border-violet-200 rounded-xl p-5 mt-6">
-                            <p class="text-sm font-semibold text-violet-700 mb-3 flex items-center gap-2">
-                                @include('client.icons.shield', ['class' => 'w-4 h-4'])
-                                Protected Content Includes:
+                        <div class="policy-text text-secondary">
+                            <p>
+                                The WebSolutionTechnology platform and all of its original content, features, and functionality are owned by
+                                WebSolutionTechnology Pvt Ltd and are protected by international copyright, trademark, patent, trade secret,
+                                and other intellectual property or proprietary rights laws.
                             </p>
-                            <ul class="space-y-2 text-sm">
-                                @foreach($protectedContent as $item)
-                                <li class="flex items-start gap-2">
-                                    <svg class="w-4 h-4 text-violet-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
-                                    </svg>
-                                    <span>{{ $item }}</span>
-                                </li>
-                                @endforeach
-                            </ul>
+                            <p>
+                                Unless explicitly stated otherwise, you may not reproduce, distribute, create derivative works of,
+                                publicly display, publicly perform, republish, download, store, or transmit any of the material on
+                                our platform without prior written consent from WebSolutionTechnology Pvt Ltd.
+                            </p>
+
+                            <div class="protected-box rounded-lg p-4 mt-4 mb-0">
+                                <p class="small font-weight-bold text-violet mb-3 d-flex align-items-center">
+                                    @include('site.icons.shield', ['class' => 'icon-sm mr-2'])
+                                    Protected Content Includes:
+                                </p>
+                                <ul class="list-unstyled small mb-0">
+                                    @foreach($protectedContent as $item)
+                                    <li class="d-flex align-items-start mb-2">
+                                        <svg class="icon-sm text-violet mr-2 mt-1 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+                                        </svg>
+                                        <span>{{ $item }}</span>
+                                    </li>
+                                    @endforeach
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </section>
 
                 {{-- Section 3 - Prohibited Uses --}}
-                <section id="prohibited" x-intersect:enter="$el.classList.add('revealed')"
-                         class="reveal bg-white border border-gray-200 rounded-2xl p-8 shadow-sm">
-                    <div class="flex items-center gap-3 mb-6">
-                        <div class="w-10 h-10 rounded-xl bg-red-100 flex items-center justify-center text-red-600">
-                            @include('client.icons.alert-circle', ['class' => 'w-5 h-5'])
-                        </div>
-                        <h2 class="text-xl font-bold text-gray-900">Prohibited Uses</h2>
-                    </div>
-                    <div class="space-y-4 text-gray-600 leading-relaxed">
-                        <p>You agree not to use the platform for any purpose that violates applicable intellectual property laws. The following activities are strictly prohibited:</p>
-                        <div class="grid sm:grid-cols-2 gap-3 mt-4">
-                            @foreach($prohibitedUses as $item)
-                            <div class="flex items-start gap-2.5 p-3 rounded-lg bg-red-50 border border-red-100 text-sm">
-                                <svg class="w-4 h-4 text-red-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
-                                </svg>
-                                <span>{{ $item }}</span>
+                <section id="prohibited" class="policy-card card border rounded-lg shadow-sm mb-4">
+                    <div class="card-body p-4 p-md-5">
+                        <div class="d-flex align-items-center mb-4">
+                            <div class="icon-box icon-box-red mr-3">
+                                @include('site.icons.alert-circle', ['class' => 'icon-md'])
                             </div>
-                            @endforeach
+                            <h2 class="h4 font-weight-bold text-dark mb-0">Prohibited Uses</h2>
+                        </div>
+                        <div class="policy-text text-secondary">
+                            <p>You agree not to use the platform for any purpose that violates applicable intellectual property laws. The following activities are strictly prohibited:</p>
+                            <div class="row mt-3">
+                                @foreach($prohibitedUses as $item)
+                                <div class="col-sm-6 mb-3">
+                                    <div class="prohibited-item d-flex align-items-start rounded p-3 small h-100">
+                                        <svg class="icon-sm text-danger mr-2 mt-1 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+                                        </svg>
+                                        <span>{{ $item }}</span>
+                                    </div>
+                                </div>
+                                @endforeach
+                            </div>
                         </div>
                     </div>
                 </section>
 
                 {{-- Section 4 - Takedown --}}
-                <section id="takedown" x-intersect:enter="$el.classList.add('revealed')"
-                         class="reveal bg-white border border-gray-200 rounded-2xl p-8 shadow-sm">
-                    <div class="flex items-center gap-3 mb-6">
-                        <div class="w-10 h-10 rounded-xl bg-violet-100 flex items-center justify-center text-violet-600">
-                            @include('client.icons.scale', ['class' => 'w-5 h-5'])
+                <section id="takedown" class="policy-card card border rounded-lg shadow-sm mb-4">
+                    <div class="card-body p-4 p-md-5">
+                        <div class="d-flex align-items-center mb-4">
+                            <div class="icon-box icon-box-violet mr-3">
+                                @include('site.icons.scale', ['class' => 'icon-md'])
+                            </div>
+                            <h2 class="h4 font-weight-bold text-dark mb-0">Copyright Takedown Notice</h2>
                         </div>
-                        <h2 class="text-xl font-bold text-gray-900">Copyright Takedown Notice</h2>
-                    </div>
-                    <div class="space-y-4 text-gray-600 leading-relaxed">
-                        <p>QuickDials Pvt Ltd takes copyright infringement seriously. If you believe that any content on our platform infringes your copyright, you may submit a written takedown notice.</p>
-                        <p>
-                            The description of the work believed to be infringed, with adequate information to identify the work, must be provided.
-                            QuickDials responds to all valid notices within <strong class="text-gray-900">30 business days</strong>.
-                        </p>
-                        <div class="bg-violet-50/60 border border-violet-200 rounded-xl p-5 mt-2">
-                            <p class="text-sm font-semibold text-gray-900 mb-3">Your notice must include:</p>
-                            <div class="space-y-2 text-sm">
-                                @foreach($takedownRequirements as $i => $item)
-                                <div class="flex items-start gap-3">
-                                    <span class="w-5 h-5 rounded-full bg-violet-200/60 text-violet-700 text-xs font-bold flex items-center justify-center flex-shrink-0 mt-0.5">{{ $i + 1 }}</span>
-                                    <span class="text-gray-600">{{ $item }}</span>
+                        <div class="policy-text text-secondary">
+                            <p>WebSolutionTechnology Pvt Ltd takes copyright infringement seriously. If you believe that any content on our platform infringes your copyright, you may submit a written takedown notice.</p>
+                            <p>
+                                The description of the work believed to be infringed, with adequate information to identify the work, must be provided.
+                                WebSolutionTechnology responds to all valid notices within <strong class="text-dark">30 business days</strong>.
+                            </p>
+
+                            <div class="takedown-box rounded-lg p-4 mt-3 mb-0">
+                                <p class="small font-weight-bold text-dark mb-3">Your notice must include:</p>
+                                <div>
+                                    @foreach($takedownRequirements as $i => $item)
+                                    <div class="d-flex align-items-start mb-2">
+                                        <span class="takedown-badge mr-3 mt-1">{{ $i + 1 }}</span>
+                                        <span class="text-secondary small">{{ $item }}</span>
+                                    </div>
+                                    @endforeach
                                 </div>
-                                @endforeach
                             </div>
                         </div>
                     </div>
                 </section>
 
                 {{-- Section 5 - Jurisdiction --}}
-                <section id="jurisdiction" x-intersect:enter="$el.classList.add('revealed')"
-                         class="reveal bg-white border border-gray-200 rounded-2xl p-8 shadow-sm">
-                    <div class="flex items-center gap-3 mb-6">
-                        <div class="w-10 h-10 rounded-xl bg-violet-100 flex items-center justify-center text-violet-600">
-                            @include('client.icons.globe', ['class' => 'w-5 h-5'])
+                <section id="jurisdiction" class="policy-card card border rounded-lg shadow-sm mb-4">
+                    <div class="card-body p-4 p-md-5">
+                        <div class="d-flex align-items-center mb-4">
+                            <div class="icon-box icon-box-violet mr-3">
+                                @include('site.icons.globe', ['class' => 'icon-md'])
+                            </div>
+                            <h2 class="h4 font-weight-bold text-dark mb-0">Jurisdiction</h2>
                         </div>
-                        <h2 class="text-xl font-bold text-gray-900">Jurisdiction</h2>
-                    </div>
-                    <div class="space-y-4 text-gray-600 leading-relaxed">
-                        <p>This Copyright Policy shall be governed by and construed in accordance with the laws of India, without regard to its conflict of law provisions. QuickDials Pvt Ltd is registered and operates under the jurisdiction of Indian law.</p>
-                        <p>For disputes arising from this policy, you agree to submit to the exclusive jurisdiction of the courts located in Bangalore, Karnataka, India. This policy applies globally to all users of the QuickDials platform regardless of geographic location.</p>
-                        <div class="flex flex-wrap gap-3 mt-4">
-                            @foreach(['Information Technology Act, 2000', 'Copyright Act, 1957', 'DMCA Compliant', 'GDPR Aware'] as $tag)
-                            <span class="px-3 py-1.5 rounded-full bg-violet-50 text-violet-700 text-xs font-semibold border border-violet-200">{{ $tag }}</span>
-                            @endforeach
+                        <div class="policy-text text-secondary">
+                            <p>This Copyright Policy shall be governed by and construed in accordance with the laws of India, without regard to its conflict of law provisions. WebSolutionTechnology Pvt Ltd is registered and operates under the jurisdiction of Indian law.</p>
+                            <p class="mb-0">For disputes arising from this policy, you agree to submit to the exclusive jurisdiction of the courts located in Bangalore, Karnataka, India. This policy applies globally to all users of the WebSolutionTechnology platform regardless of geographic location.</p>
+
+                            <div class="d-flex flex-wrap mt-3" style="gap: 0.6rem;">
+                                @foreach(['Information Technology Act, 2000', 'Copyright Act, 1957', 'DMCA Compliant', 'GDPR Aware'] as $tag)
+                                <span class="badge badge-pill jurisdiction-tag px-3 py-2">{{ $tag }}</span>
+                                @endforeach
+                            </div>
                         </div>
                     </div>
                 </section>
 
                 {{-- Section 6 - Contact --}}
-                <section id="contact" x-intersect:enter="$el.classList.add('revealed')"
-                         class="reveal bg-gradient-to-br from-violet-50 via-white to-fuchsia-50 border border-violet-200 rounded-2xl p-8 shadow-sm">
-                    <div class="flex items-center gap-3 mb-6">
-                        <div class="w-10 h-10 rounded-xl bg-violet-100 flex items-center justify-center text-violet-600">
-                            @include('client.icons.mail', ['class' => 'w-5 h-5'])
+                <section id="contact" class="policy-card contact-card card border rounded-lg shadow-sm mb-4">
+                    <div class="card-body p-4 p-md-5">
+                        <div class="d-flex align-items-center mb-4">
+                            <div class="icon-box icon-box-violet mr-3">
+                                @include('site.icons.mail', ['class' => 'icon-md'])
+                            </div>
+                            <h2 class="h4 font-weight-bold text-dark mb-0">Contact Us</h2>
                         </div>
-                        <h2 class="text-xl font-bold text-gray-900">Contact Us</h2>
-                    </div>
-                    <div class="space-y-4 text-gray-600 leading-relaxed">
-                        <p>If you have any questions about this Copyright Policy, wish to report a copyright infringement, or need to contact us regarding intellectual property matters, please reach out to us:</p>
-                        <div class="grid sm:grid-cols-2 gap-4 mt-6">
-                            <div class="flex items-start gap-3 p-4 rounded-xl bg-white border border-gray-200">
-                                <div class="w-8 h-8 rounded-lg bg-violet-100 flex items-center justify-center flex-shrink-0 text-violet-600">
-                                    @include('client.icons.mail', ['class' => 'w-4 h-4'])
+                        <div class="policy-text text-secondary">
+                            <p>If you have any questions about this Copyright Policy, wish to report a copyright infringement, or need to contact us regarding intellectual property matters, please reach out to us:</p>
+
+                            <div class="row mt-4">
+                                <div class="col-sm-6 mb-3">
+                                    <div class="contact-tile d-flex align-items-start rounded-lg p-3 h-100 bg-white">
+                                        <div class="icon-box icon-box-violet icon-box-sm mr-3">
+                                            @include('site.icons.mail', ['class' => 'icon-sm'])
+                                        </div>
+                                        <div>
+                                            <p class="text-muted small mb-1">Copyright Officer</p>
+                                            <a href="mailto:info@WebSolutionTechnology.com" class="font-weight-bold text-dark small contact-link">info@WebSolutionTechnology.com</a>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div>
-                                    <p class="text-xs text-gray-500 mb-0.5">Copyright Officer</p>
-                                    <a href="mailto:info@quickdials.com" class="text-sm font-semibold text-gray-900 hover:text-violet-600">info@quickdials.com</a>
+                                <div class="col-sm-6 mb-3">
+                                    <div class="contact-tile d-flex align-items-start rounded-lg p-3 h-100 bg-white">
+                                        <div class="icon-box icon-box-violet icon-box-sm mr-3">
+                                            @include('site.icons.globe', ['class' => 'icon-sm'])
+                                        </div>
+                                        <div>
+                                            <p class="text-muted small mb-1">Registered Office</p>
+                                            <p class="font-weight-bold text-dark small mb-0">Bangalore, Karnataka, India</p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="flex items-start gap-3 p-4 rounded-xl bg-white border border-gray-200">
-                                <div class="w-8 h-8 rounded-lg bg-violet-100 flex items-center justify-center flex-shrink-0 text-violet-600">
-                                    @include('client.icons.globe', ['class' => 'w-4 h-4'])
-                                </div>
-                                <div>
-                                    <p class="text-xs text-gray-500 mb-0.5">Registered Office</p>
-                                    <p class="text-sm font-semibold text-gray-900">Bangalore, Karnataka, India</p>
-                                </div>
+
+                            <div class="border-top pt-4 mt-2">
+                                <p class="small mb-0">
+                                    We aim to respond to all copyright-related inquiries within
+                                    <strong class="text-dark">3–5 business days</strong>.
+                                    For urgent matters, please mark your email as
+                                    <span class="text-violet font-weight-bold">"URGENT: COPYRIGHT"</span> in the subject line.
+                                </p>
                             </div>
-                        </div>
-                        <div class="mt-6 pt-6 border-t border-gray-200">
-                            <p class="text-sm">
-                                We aim to respond to all copyright-related inquiries within
-                                <strong class="text-gray-900">3–5 business days</strong>.
-                                For urgent matters, please mark your email as
-                                <span class="text-violet-600 font-semibold">"URGENT: COPYRIGHT"</span> in the subject line.
-                            </p>
                         </div>
                     </div>
                 </section>
 
-               
             </main>
         </div>
     </div>
 
     {{-- Back to top --}}
-    <button type="button"
-            x-show="showBackToTop"
-            x-cloak
-            x-transition.opacity
-            @click="window.scrollTo({ top: 0, behavior: 'smooth' })"
-            class="fixed bottom-6 right-6 w-11 h-11 rounded-full bg-violet-600 text-white shadow-lg flex items-center justify-center hover:bg-violet-700 transition-all z-50"
-            aria-label="Back to top">
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+    <button type="button" id="backToTopBtn" class="btn back-to-top-btn rounded-circle" aria-label="Back to top">
+        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7"/>
         </svg>
     </button>
 </div>
 
 <script>
-function copyrightPage() {
-    return {
-        activeSection: 'intro',
-        showBackToTop: false,
-        observer: null,
+(function () {
+    var backToTopBtn = document.getElementById('backToTopBtn');
 
-        init() {
-            // Active section tracking via IntersectionObserver
-            this.observer = new IntersectionObserver(
-                (entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) this.activeSection = entry.target.id;
-                    });
-                },
-                { threshold: 0.3, rootMargin: '-80px 0px -60% 0px' }
-            );
-
-            document.querySelectorAll('section[id]').forEach(el => this.observer.observe(el));
-
-            // Scroll listener for back-to-top
-            window.addEventListener('scroll', () => {
-                this.showBackToTop = window.scrollY > 400;
-            });
-        },
-
-        scrollToSection(id) {
-            const el = document.getElementById(id);
-            if (!el) return;
-            const top = el.getBoundingClientRect().top + window.scrollY - 80;
-            window.scrollTo({ top, behavior: 'smooth' });
+    // Show/hide back-to-top button
+    window.addEventListener('scroll', function () {
+        if (window.scrollY > 400) {
+            backToTopBtn.classList.add('show');
+        } else {
+            backToTopBtn.classList.remove('show');
         }
-    }
-}
+    });
+
+    backToTopBtn.addEventListener('click', function () {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Bootstrap 4 Scrollspy needs jQuery + bootstrap.js loaded in your layout.
+    // It listens for 'activate' on the scrollspy target and toggles styling via .active class (handled in CSS below).
+
+    // Smooth scroll for TOC links (offset for fixed header)
+    document.querySelectorAll('#copyright-toc .toc-link').forEach(function (link) {
+        link.addEventListener('click', function (e) {
+            var targetId = this.getAttribute('href');
+            var targetEl = document.querySelector(targetId);
+            if (!targetEl) return;
+            e.preventDefault();
+            var top = targetEl.getBoundingClientRect().top + window.scrollY - 80;
+            window.scrollTo({ top: top, behavior: 'smooth' });
+        });
+    });
+})();
 </script>
-@endsection
 
-@push('styles')
+ font-size: ;
 <style>
-    [x-cloak] { display: none !important; }
+    /* ===== Hero ===== */
+    .copyright-hero {
+        background: linear-gradient(135deg, hsl(270, 50%, 95%) 0%, hsl(290, 60%, 96%) 50%, hsl(250, 45%, 95%) 100%);
+        position: relative;
+        overflow: hidden;
+    }
+    .hero-badge {
+        background: rgba(139, 92, 246, 0.1);
+        color: #6d28d9;
+        border: 1px solid rgba(139, 92, 246, 0.2);
+    }
+    .hero-subtext { color: rgba(109, 40, 217, 0.7); }
+    .hero-meta { color: rgba(109, 40, 217, 0.6); }
 
-    /* Shimmer text on heading */
+    .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; }
+    .dot-violet { background-color: #8b5cf6; }
+    .dot-fuchsia { background-color: #d946ef; }
+
+    .hero-wave {
+        position: absolute;
+        bottom: 0; left: 0; right: 0;
+        width: 100%;
+        display: block;
+    }
+
     .shimmer-text {
         background: linear-gradient(90deg, #8b5cf6 0%, #d946ef 50%, #8b5cf6 100%);
         background-size: 200% 100%;
         -webkit-background-clip: text;
         background-clip: text;
         -webkit-text-fill-color: transparent;
+        color: transparent;
         animation: shimmer 3s ease-in-out infinite;
     }
     @keyframes shimmer {
@@ -390,25 +421,130 @@ function copyrightPage() {
         50% { background-position: 100% 50%; }
     }
 
-    /* Reveal-on-scroll */
-    .reveal {
-        opacity: 0;
-        transform: translateY(20px);
-        transition: opacity 0.6s ease, transform 0.6s ease;
+    /* ===== Layout helpers ===== */
+    .text-violet { color: #7c3aed; }
+    .rounded-lg { border-radius: 1rem !important; }
+    .icon-sm { width: 16px; height: 16px; }
+    .icon-md { width: 20px; height: 20px; }
+    .flex-shrink-0 { flex-shrink: 0; }
+
+    .icon-box {
+        width: 40px;
+        height: 40px;
+        border-radius: 0.75rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
     }
-    .reveal.revealed {
-        opacity: 1;
-        transform: translateY(0);
+    .icon-box-sm { width: 32px; height: 32px; border-radius: 0.5rem; }
+    .icon-box-violet { background-color: #ede9fe; color: #7c3aed; }
+    .icon-box-red { background-color: #fee2e2; color: #dc2626; }
+
+    /* ===== Sidebar TOC ===== */
+    .sticky-toc {
+        position: sticky;
+        top: 90px;
+    }
+    .toc-nav .toc-link {
+        color: #6b7280;
+        font-size: 0.875rem;
+        padding: 0.625rem 0.75rem;
+        border-radius: 0.5rem;
+        transition: all 0.2s ease;
+    }
+    .toc-nav .toc-link:hover {
+        background-color: #f9fafb;
+        color: #111827;
+        text-decoration: none;
+    }
+    .toc-nav .toc-link.active {
+        background-color: #f5f3ff;
+        color: #7c3aed;
+        font-weight: 600;
+    }
+    .toc-nav .toc-link .toc-icon { color: #9ca3af; }
+    .toc-nav .toc-link.active .toc-icon { color: #7c3aed; }
+
+    .summary-card {
+        background: linear-gradient(135deg, #ede9fe 0%, #fdf4ff 100%);
+        border-color: #ddd6fe !important;
     }
 
-    /* Fade-in-up for hero */
-    @keyframes fadeInUp {
-        from { opacity: 0; transform: translateY(20px); }
-        to   { opacity: 1; transform: translateY(0); }
+    /* ===== Policy cards ===== */
+    .policy-card { transition: box-shadow 0.2s ease; }
+    .policy-text p { margin-bottom: 1rem; line-height: 1.7; }
+
+    .protected-box {
+        background-color: #f5f3ff;
+        border: 1px solid #ddd6fe;
     }
-    .animate-fade-in-up {
-        animation: fadeInUp 0.6s ease forwards;
+
+    .prohibited-item {
+        background-color: #fef2f2;
+        border: 1px solid #fee2e2;
+    }
+
+    .takedown-box {
+        background-color: rgba(245, 243, 255, 0.6);
+        border: 1px solid #ddd6fe;
+    }
+    .takedown-badge {
+        width: 20px;
+        height: 20px;
+        min-width: 20px;
+        border-radius: 50%;
+        background-color: rgba(221, 214, 254, 0.6);
+        color: #7c3aed;
+        font-size: 0.7rem;
+        font-weight: 700;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .jurisdiction-tag {
+        background-color: #f5f3ff;
+        color: #7c3aed;
+        border: 1px solid #ddd6fe;
+        font-size: 0.75rem;
+        font-weight: 600;
+    }
+
+    .contact-card {
+        background: linear-gradient(135deg, #f5f3ff 0%, #ffffff 50%, #fdf4ff 100%);
+        border-color: #ddd6fe !important;
+    }
+    .contact-tile {
+        border: 1px solid #e5e7eb;
+    }
+    .contact-link:hover { color: #7c3aed !important; text-decoration: none; }
+
+    /* ===== Back to top ===== */
+    .back-to-top-btn {
+        position: fixed;
+        bottom: 24px;
+        right: 24px;
+        width: 44px;
+        height: 44px;
+        background-color: #7c3aed;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
         opacity: 0;
+        visibility: hidden;
+        transform: translateY(10px);
+        transition: all 0.25s ease;
+        z-index: 1050;
+        border: none;
+    }
+    .back-to-top-btn:hover { background-color: #6d28d9; color: #fff; }
+    .back-to-top-btn.show {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
     }
 </style>
-@endpush
+ @endsection

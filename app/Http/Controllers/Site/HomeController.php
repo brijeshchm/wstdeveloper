@@ -198,6 +198,11 @@ class HomeController extends Controller
        
 		return view('site.refund-policy');
     }
+	public function careers(Request $request)
+    {	 
+       
+		return view('site.careers');
+    }
 
 
 

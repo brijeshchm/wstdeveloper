@@ -300,45 +300,41 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                 <div class="quform-elements">
                                     <div class="row">
 
-                                       <ul class="space-y-3">
-                 
-                    
-                        <li>
-                            <a href="{{ route('about-us') }}" class="text-gray-500 text-sm hover:text-primary transition-colors">About Us</a>
-                        </li>
-                    
-                        <li>
-                            <a href="{{ route('contact-us') }}" class="text-gray-500 text-sm hover:text-primary transition-colors">Contact Us</a>
-                        </li>
-                    
-                        <li>
-                            <a href="{{ route('careers') }}" class="text-gray-500 text-sm hover:text-primary transition-colors">Careers</a>
-                        </li>
-                   
-                    
-                        <li>
-                            <a href="{{ route('blog.list') }}" class="text-gray-500 text-sm hover:text-primary transition-colors">Blog</a>
-                        </li>
-                    
-                       
-                    
-                        <li>
-                            <a href="{{ route('privacy.policy') }}" class="text-gray-500 text-sm hover:text-primary transition-colors">Privacy Policy</a>
-                        </li>
-                    
-                        <li>
-                            <a href="{{ route('terms.conditions') }}" class="text-gray-500 text-sm hover:text-primary transition-colors">Terms of Service</a>
-                        </li>
-                    
-                        <li>
-                            <a href="{{ route('privacy.policy') }}" class="text-gray-500 text-sm hover:text-primary transition-colors">Copyright Policy</a>
-                        </li>
-                    
-                        <li>
-                            <a href="{{ route('refund.policy') }}" class="text-gray-500 text-sm hover:text-primary transition-colors">Refund Policy</a>
-                        </li>
-                                    </ul>
- 
+                                      <ul class="list-unstyled mb-0 footer-link-list">
+
+    <li class="mb-2">
+        <a href="{{ route('about-us') }}" class="footer-link">About Us</a>
+    </li>
+
+    <li class="mb-2">
+        <a href="{{ route('contact-us') }}" class="footer-link">Contact Us</a>
+    </li>
+
+    <li class="mb-2">
+        <a href="{{ route('careers') }}" class="footer-link">Careers</a>
+    </li>
+
+    <li class="mb-2">
+        <a href="{{ route('blog.list') }}" class="footer-link">Blog</a>
+    </li>
+
+    <li class="mb-2">
+        <a href="{{ route('privacy.policy') }}" class="footer-link">Privacy Policy</a>
+    </li>
+
+    <li class="mb-2">
+        <a href="{{ route('terms.conditions') }}" class="footer-link">Terms of Service</a>
+    </li>
+
+    <li class="mb-2">
+        <a href="{{ route('copyright.policy') }}" class="footer-link">Copyright Policy</a>
+    </li>
+
+    <li class="mb-2">
+        <a href="{{ route('refund.policy') }}" class="footer-link">Refund Policy</a>
+    </li>
+
+</ul>
                                     </div>
 
                                 </div>
@@ -361,7 +357,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     </div>
 
-   
+   <style>
+    .footer-link {
+    color: #fff;       /* text-gray-500 equivalent */
+    font-size: 0.875rem;  /* text-sm */
+    text-decoration: none;
+    transition: color 0.15s ease-in-out;
+}
+.footer-link:hover {
+    color: var(--primary, #7c3aed); /* swap in your actual primary color/variable */
+    text-decoration: none;
+}
+   </style>
    
    
    
