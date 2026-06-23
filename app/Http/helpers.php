@@ -30,17 +30,7 @@ function inverse_generate_slug($slug=null){
 
 
 function get_time($time) {
- /*  $deffTime =  time()-$time;
-    $duration = $deffTime / 1000;
-    $hours = floor($duration / 3600);
-    $minutes = floor(($duration / 60) % 60);
-    $seconds = $duration % 60;
-    echo $hours;
-    if ($hours != 0)
-        echo "$hours:$minutes:$seconds";
-    else
-        echo "$minutes:$seconds";
-        */
+ 
         $start_date = date('Y-m-d H:i:s');
      
         $diff = abs(strtotime($start_date) - $time);

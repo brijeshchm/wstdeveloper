@@ -33,7 +33,7 @@
                     <div class="col-lg-6 col-md-6 col-sm-12">
                         <div class="d-flex flex-row-reverse">
                             <div class="page_action">
-                                <button type="button" class="btn btn-primary"><a href="{{url('admin/blogs/add')}}"> <i class="fa fa-plus" aria-hidden="true"></i> Add Service</a></button>
+                                <button type="button" class="btn btn-primary"><a href="{{url('admin/blogs/add')}}"> <i class="fa fa-plus" aria-hidden="true"></i> Add Blog</a></button>
                                  
                             
                             </div>
@@ -69,14 +69,14 @@
              
 									    <label>Category<span class="required">*</span></label>
 									<div class="form-group">
-								<select class="form-control" name="categories_id">
+								<select class="form-control" name="category">
 								 <option value="">Select Category</option>
 								<?php if(!empty($categories) ){						 	
 									foreach($categories as $category){
 
 									?>
-									<option value="<?php echo $category->id; ?>"  @if($category->id == old('categories_id'))
-									selected="selected"	@else {{ (isset($edit_data) && $edit_data->categories_id == $category->id)? "selected":"" }}
+									<option value="<?php echo $category->id; ?>"  @if($category->id == old('category'))
+									selected="selected"	@else {{ (isset($edit_data) && $edit_data->category == $category->id)? "selected":"" }}
 									@endif><?php echo $category->name; ?></option>
 					  
 									<?php	   } } ?>
@@ -89,12 +89,7 @@
                             <input type="text" class="form-control" name ="title" value="{{ old('title',(isset($edit_data)) ? $edit_data->title:"")}}" placeholder="Enter title">
                         </div>
                     </div>
-								 <div class="col-sm-6">
-									  <label>Sub title</label>
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" name ="sub_title" value="{{ old('sub_title',(isset($edit_data)) ? $edit_data->sub_title:"")}}" placeholder="Enter Blog title Name">
-                                    </div>
-                                </div>
+								 
 
 
 
@@ -108,17 +103,20 @@
                                     </div>
                                 </div>
 								
-								<div class="col-sm-6">
-                                    <label>Meta Keyword</label>
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" name ="meta_keyword" value="{{ old('meta_keyword',(isset($edit_data)) ? $edit_data->meta_keyword:"")}}" placeholder="Enter meta keyword">
+								 <div class="col-sm-6">
+                                    <label>Meta Keywords</label>
+                                    <div class="form-group">                                      
+                                        <textarea rows="4" class="form-control no-resize" name="meta_keywords">{{ old('meta_keywords', $edit_data->meta_keywords ?? '') }}</textarea>
+
                                     </div>
                                 </div>
-                                
-                                  <div class="col-sm-6">
+
+                                <div class="col-sm-12">
                                     <label>Meta Description</label>
                                     <div class="form-group">
-                                        <input type="text" class="form-control" name ="meta_description" value="{{ old('meta_description',(isset($edit_data)) ? $edit_data->meta_description:"")}}" placeholder="Enter meta description">
+                                       
+                                    <textarea rows="4" class="form-control no-resize" name="meta_description">{{ old('meta_description', $edit_data->meta_description ?? '') }}</textarea>
+
                                     </div>
                                 </div>
 								
@@ -184,8 +182,7 @@
 							<div class="table-responsive">
                             <table class="table table-bordered table-hover table-striped" cellspacing="0" id="datatable-all-BlogList">
                                 <thead>
-                                    <tr>
-                                        <th>Title</th>
+                                    <tr>                                       
                                         <th>Slug</th> 	                                        
                                         <th>Status</th>
                                         <th>Actions</th>

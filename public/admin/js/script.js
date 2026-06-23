@@ -504,7 +504,7 @@ $(document).ready(function () {
 					   // ;			
 						if(data.status){	
 						 
-						$('#messagemodel .modal-title').text("doctor");	
+						$('#messagemodel .modal-title').text("Service");	
 						$('#messagemodel .modal-body').html("<div class='alert alert-success'>"+data.msg+"</div>");			
 						$('#messagemodel').modal({keyboard:false,backdrop:'static'});
 						$('#messagemodel').css({'width':'100%'});
@@ -512,7 +512,7 @@ $(document).ready(function () {
 							 
 							//  window.location.href ="/admin/service";
 						}else{
-							$('#messagemodel .modal-title').text("doctor");	
+							$('#messagemodel .modal-title').text("Service");	
 							$('#messagemodel .modal-body').html("<div class='alert alert-danger'>"+data.msg+"</div>");			
 							$('#messagemodel').modal({keyboard:false,backdrop:'static'});
 							$('#messagemodel').css({'width':'100%'});
@@ -611,7 +611,7 @@ $(document).ready(function () {
 								$('#datatable-trainerrequired').find('[data-toggle="popover"]').popover({html:true,container:'body'});
 							},false);
 					}else{
-							$('#messagemodel .modal-title').text("doctor Delete");	
+							$('#messagemodel .modal-title').text("Service Delete");	
 							$('#messagemodel .modal-body').html("<div class='alert alert-danger'>"+response.msg+"</div>");		
 							$('#messagemodel').modal({keyboard:false,backdrop:'static'});
 							$('#messagemodel').css({'width':'100%'});
@@ -721,7 +721,7 @@ var aboutsController = (function(){
 					   // ;			
 						if(data.status){	
 						 
-						$('#messagemodel .modal-title').text("doctor");	
+						$('#messagemodel .modal-title').text("Service");	
 						$('#messagemodel .modal-body').html("<div class='alert alert-success'>"+data.msg+"</div>");			
 						$('#messagemodel').modal({keyboard:false,backdrop:'static'});
 						$('#messagemodel').css({'width':'100%'});
@@ -729,7 +729,7 @@ var aboutsController = (function(){
 							 
 							 window.location.href ="/admin/aboutsUs";
 						}else{
-							$('#messagemodel .modal-title').text("doctor");	
+							$('#messagemodel .modal-title').text("Service");	
 							$('#messagemodel .modal-body').html("<div class='alert alert-danger'>"+data.msg+"</div>");			
 							$('#messagemodel').modal({keyboard:false,backdrop:'static'});
 							$('#messagemodel').css({'width':'100%'});
@@ -819,13 +819,13 @@ var aboutsController = (function(){
 					success:function(response){	
 					 ;			
 					if(response.status){
-						$('#messagemodel .modal-title').text("doctor Delete");	
+						$('#messagemodel .modal-title').text("Service Delete");	
 						$('#messagemodel .modal-body').html("<div class='alert alert-success'>"+response.msg+"</div>");			
 						$('#messagemodel').modal({keyboard:false,backdrop:'static'});
 						$('#messagemodel').css({'width':'100%'});
 						dataTableAllAboutsUs.ajax.reload( null, false );   
 					}else{
-							$('#messagemodel .modal-title').text("doctor Delete");	
+							$('#messagemodel .modal-title').text("Service Delete");	
 							$('#messagemodel .modal-body').html("<div class='alert alert-danger'>"+response.msg+"</div>");		
 							$('#messagemodel').modal({keyboard:false,backdrop:'static'});
 							$('#messagemodel').css({'width':'100%'});
@@ -917,25 +917,24 @@ var blogController = (function(){
 					contentType: false, 
                     processData: false,             
 					success:function(data){	
-					   // ;			
+					   		
 						if(data.status){	
 						 
-						$('#messagemodel .modal-title').text("doctor");	
+						$('#messagemodel .modal-title').text("Blog Save");	
 						$('#messagemodel .modal-body').html("<div class='alert alert-success'>"+data.msg+"</div>");			
 						$('#messagemodel').modal({keyboard:false,backdrop:'static'});
 						$('#messagemodel').css({'width':'100%'});
 							removeValidationErrors($this);
-							 
-							//  window.location.href ="/admin/blogList";
+						 
 						}else{
-							$('#messagemodel .modal-title').text("doctor");	
+							$('#messagemodel .modal-title').text("Service");	
 							$('#messagemodel .modal-body').html("<div class='alert alert-danger'>"+data.msg+"</div>");			
 							$('#messagemodel').modal({keyboard:false,backdrop:'static'});
 							$('#messagemodel').css({'width':'100%'});
 						}
 					},
 					error:function(jqXHR, textStatus, errorThrown){
-					   // ;			
+				 		
 						var response = JSON.parse(jqXHR.responseText);
 						if(response.status){ 
 						
@@ -961,12 +960,12 @@ var blogController = (function(){
 				 return false;	
 			},
 
-			editSaveBlog:function(THIS,id){	
+			blogMetaUpdate:function(THIS,id){	
 			  var $this = $(THIS);
 			var form = new FormData(THIS);	
-			 alert(form);
+		 
 				$.ajax({
-					url:"/admin/blogListEditSave/"+id,
+					url:"/admin/blogMetaUpdate/"+id,
 					type:"POST",					   
 					dataType:"json",	
 					data:form,
@@ -974,15 +973,15 @@ var blogController = (function(){
 					contentType: false, 
                     processData: false,                      
 					success:function(data){
-					    ;			
+							
 						if(data.status){	
 					 					
-						$('#messagemodel .modal-title').text("FAQs");	
+						$('#messagemodel .modal-title').text("Blog Meta");	
 						$('#messagemodel .modal-body').html("<div class='alert alert-success'>"+data.msg+"</div>");			
 						$('#messagemodel').modal({keyboard:false,backdrop:'static'});
 						$('#messagemodel').css({'width':'100%'});
 							removeValidationErrors($this);
-							window.location.href ="/admin/blogList";
+							 
 						}else{
 							$('#messagemodel .modal-title').text("Course Content");	
 							$('#messagemodel .modal-body').html("<div class='alert alert-danger'>"+data.msg+"</div>");			
@@ -992,7 +991,7 @@ var blogController = (function(){
 						}
 					},
 					error:function(jqXHR, textStatus, errorThrown){
-					    ;			
+					    			
 						var response = JSON.parse(jqXHR.responseText);
 						if(response.status){ 
 							showValidationErrors($this,response.errors);						 
@@ -1005,33 +1004,205 @@ var blogController = (function(){
 				 return false;	
 			},
 
-		 	 
+		 	blogUpdateAbout:function(THIS,id){	
+			var $this = $(THIS);
+			var form = new FormData(THIS);	
+			 
+				$.ajax({
+					url:"/admin/blogUpdateAbout/"+id,
+					type:"POST",					   
+					dataType:"json",	
+					data:form,
+					 cache: false,
+					contentType: false, 
+                    processData: false,                      
+					success:function(data){
+							
+						if(data.status){	
+					 					
+						$('#messagemodel .modal-title').text("Blog About");	
+						$('#messagemodel .modal-body').html("<div class='alert alert-success'>"+data.msg+"</div>");			
+						$('#messagemodel').modal({keyboard:false,backdrop:'static'});
+						$('#messagemodel').css({'width':'100%'});
+							removeValidationErrors($this);
+						 
+						}else{
+							$('#messagemodel .modal-title').text("Course Content");	
+							$('#messagemodel .modal-body').html("<div class='alert alert-danger'>"+data.msg+"</div>");			
+							$('#messagemodel').modal({keyboard:false,backdrop:'static'});
+							$('#messagemodel').css({'width':'100%'});		 
+							
+						}
+					},
+					error:function(jqXHR, textStatus, errorThrown){
+							
+						var response = JSON.parse(jqXHR.responseText);
+						if(response.status){ 
+							showValidationErrors($this,response.errors);						 
+						}else{
+							alert('Something went wrong');
+						}
+						 
+					}
+				}); 
+				 return false;	
+			},
+		 	blogUpdateContent:function(THIS,id){	
+			var $this = $(THIS);
+			var form = new FormData(THIS);	
+		 
+				$.ajax({
+					url:"/admin/blogUpdateContent/"+id,
+					type:"POST",					   
+					dataType:"json",	
+					data:form,
+					 cache: false,
+					contentType: false, 
+                    processData: false,                      
+					success:function(data){
+					    	
+						if(data.status){	
+					 					
+						$('#messagemodel .modal-title').text("Blog");	
+						$('#messagemodel .modal-body').html("<div class='alert alert-success'>"+data.msg+"</div>");			
+						$('#messagemodel').modal({keyboard:false,backdrop:'static'});
+						$('#messagemodel').css({'width':'100%'});
+							removeValidationErrors($this);
+						 
+						}else{
+							$('#messagemodel .modal-title').text("Course Content");	
+							$('#messagemodel .modal-body').html("<div class='alert alert-danger'>"+data.msg+"</div>");			
+							$('#messagemodel').modal({keyboard:false,backdrop:'static'});
+							$('#messagemodel').css({'width':'100%'});		 
+							
+						}
+					},
+					error:function(jqXHR, textStatus, errorThrown){
+							
+						var response = JSON.parse(jqXHR.responseText);
+						if(response.status){ 
+							showValidationErrors($this,response.errors);						 
+						}else{
+							alert('Something went wrong');
+						}
+						 
+					}
+				}); 
+				 return false;	
+			},
+		 	blogUpdateFaq:function(THIS,id){	
+			var $this = $(THIS);
+			var form = new FormData(THIS);	
+			 
+				$.ajax({
+					url:"/admin/blogUpdateFaq/"+id,
+					type:"POST",					   
+					dataType:"json",	
+					data:form,
+					 cache: false,
+					contentType: false, 
+                    processData: false,                      
+					success:function(data){
+							
+						if(data.status){	
+					 					
+						$('#messagemodel .modal-title').text("FAQs");	
+						$('#messagemodel .modal-body').html("<div class='alert alert-success'>"+data.msg+"</div>");			
+						$('#messagemodel').modal({keyboard:false,backdrop:'static'});
+						$('#messagemodel').css({'width':'100%'});
+							removeValidationErrors($this);
+						 
+						}else{
+							$('#messagemodel .modal-title').text("Course Content");	
+							$('#messagemodel .modal-body').html("<div class='alert alert-danger'>"+data.msg+"</div>");			
+							$('#messagemodel').modal({keyboard:false,backdrop:'static'});
+							$('#messagemodel').css({'width':'100%'});		 
+							
+						}
+					},
+					error:function(jqXHR, textStatus, errorThrown){
+					    	
+						var response = JSON.parse(jqXHR.responseText);
+						if(response.status){ 
+							showValidationErrors($this,response.errors);						 
+						}else{
+							alert('Something went wrong');
+						}
+						 
+					}
+				}); 
+				 return false;	
+			},
+		 	blogUpdateImage:function(THIS,id){	
+			var $this = $(THIS);
+			var form = new FormData(THIS);	
+		 
+				$.ajax({
+					url:"/admin/blogUpdateImage/"+id,
+					type:"POST",					   
+					dataType:"json",	
+					data:form,
+					 cache: false,
+					contentType: false, 
+                    processData: false,                      
+					success:function(data){
+					    		
+						if(data.status){	
+					 					
+						$('#messagemodel .modal-title').text("Image");	
+						$('#messagemodel .modal-body').html("<div class='alert alert-success'>"+data.msg+"</div>");			
+						$('#messagemodel').modal({keyboard:false,backdrop:'static'});
+						$('#messagemodel').css({'width':'100%'});
+							removeValidationErrors($this);
+						 
+						}else{
+							$('#messagemodel .modal-title').text("Image Content");	
+							$('#messagemodel .modal-body').html("<div class='alert alert-danger'>"+data.msg+"</div>");			
+							$('#messagemodel').modal({keyboard:false,backdrop:'static'});
+							$('#messagemodel').css({'width':'100%'});		 
+							
+						}
+					},
+					error:function(jqXHR, textStatus, errorThrown){
+							
+						var response = JSON.parse(jqXHR.responseText);
+						if(response.status){ 
+							showValidationErrors($this,response.errors);						 
+						}else{
+							alert('Something went wrong');
+						}
+						 
+					}
+				}); 
+				 return false;	
+			},
+
 			 
 			delete:function(id){
 		 
 			 	if( confirm("Are you sure you want to delete?") ) {	
 				  
 				$.ajax({
-					url:"/admin/blogList/delete/"+id,
+					url:"/admin/blogs/delete/"+id,
 					type:"GET",
 				 
 					success:function(response){	
-					 ;			
+					 		
 					if(response.status){
-						$('#messagemodel .modal-title').text("doctor Delete");	
+						$('#messagemodel .modal-title').text("Service Delete");	
 						$('#messagemodel .modal-body').html("<div class='alert alert-success'>"+response.msg+"</div>");			
 						$('#messagemodel').modal({keyboard:false,backdrop:'static'});
 						$('#messagemodel').css({'width':'100%'});
 						dataTableAllBlogList.ajax.reload( null, false );   
 					}else{
-							$('#messagemodel .modal-title').text("doctor Delete");	
+							$('#messagemodel .modal-title').text("Service Delete");	
 							$('#messagemodel .modal-body').html("<div class='alert alert-danger'>"+response.msg+"</div>");		
 							$('#messagemodel').modal({keyboard:false,backdrop:'static'});
 							$('#messagemodel').css({'width':'100%'});
 					}						
 					},
 					error:function(response){
-					    ;			
+						
 						 alert('some error');
 					}
 				});
@@ -1040,12 +1211,12 @@ var blogController = (function(){
 			status:function(id,val){		 
 			 if(val==true){
 				if(confirm("Are you sure you want to change the status to Active?")){		
-				 // 
+				 
 				$.ajax({
-					url:"/admin/blogList/status/"+id+"/"+val,
+					url:"/admin/blogs/status/"+id+"/"+val,
 					type:"GET",					
 					success:function(response){	
-					 ;			
+						
 					if(response.status){
 						$('#messagemodel .modal-title').text("status successfully update");	
 						$('#messagemodel .modal-body').html("<div class='alert alert-success'>"+response.msg+"</div>");			
@@ -1070,7 +1241,7 @@ var blogController = (function(){
 					if(confirm("Are you sure you want to change the status to Inactive?")){		
 				 // 
 				$.ajax({
-					url:"/admin/blogList/status/"+id+"/"+val,
+					url:"/admin/blogs/status/"+id+"/"+val,
 					type:"GET",					
 					success:function(response){	
 					 ;			
@@ -1121,7 +1292,7 @@ var contactController = (function(){
 					   // ;			
 						if(data.status){	
 						 
-						$('#messagemodel .modal-title').text("doctor");	
+						$('#messagemodel .modal-title').text("Service");	
 						$('#messagemodel .modal-body').html("<div class='alert alert-success'>"+data.msg+"</div>");			
 						$('#messagemodel').modal({keyboard:false,backdrop:'static'});
 						$('#messagemodel').css({'width':'100%'});
@@ -1129,7 +1300,7 @@ var contactController = (function(){
 							 
 							 window.location.href ="/admin/contactUs";
 						}else{
-							$('#messagemodel .modal-title').text("doctor");	
+							$('#messagemodel .modal-title').text("Service");	
 							$('#messagemodel .modal-body').html("<div class='alert alert-danger'>"+data.msg+"</div>");			
 							$('#messagemodel').modal({keyboard:false,backdrop:'static'});
 							$('#messagemodel').css({'width':'100%'});
@@ -1219,13 +1390,13 @@ var contactController = (function(){
 					success:function(response){	
 					 ;			
 					if(response.status){
-						$('#messagemodel .modal-title').text("doctor Delete");	
+						$('#messagemodel .modal-title').text("Service Delete");	
 						$('#messagemodel .modal-body').html("<div class='alert alert-success'>"+response.msg+"</div>");			
 						$('#messagemodel').modal({keyboard:false,backdrop:'static'});
 						$('#messagemodel').css({'width':'100%'});
 						dataTableAllContactUs.ajax.reload( null, false );   
 					}else{
-							$('#messagemodel .modal-title').text("doctor Delete");	
+							$('#messagemodel .modal-title').text("Service Delete");	
 							$('#messagemodel .modal-body').html("<div class='alert alert-danger'>"+response.msg+"</div>");		
 							$('#messagemodel').modal({keyboard:false,backdrop:'static'});
 							$('#messagemodel').css({'width':'100%'});
@@ -1320,7 +1491,7 @@ var CategoryController = (function(){
 					   // ;			
 						if(data.status){	
 						 
-						$('#messagemodel .modal-title').text("doctor");	
+						$('#messagemodel .modal-title').text("Service");	
 						$('#messagemodel .modal-body').html("<div class='alert alert-success'>"+data.msg+"</div>");			
 						$('#messagemodel').modal({keyboard:false,backdrop:'static'});
 						$('#messagemodel').css({'width':'100%'});
@@ -1328,7 +1499,7 @@ var CategoryController = (function(){
 							window.location.href ="/admin/category"; 
 							
 						}else{
-							$('#messagemodel .modal-title').text("doctor");	
+							$('#messagemodel .modal-title').text("Service");	
 							$('#messagemodel .modal-body').html("<div class='alert alert-danger'>"+data.msg+"</div>");			
 							$('#messagemodel').modal({keyboard:false,backdrop:'static'});
 							$('#messagemodel').css({'width':'100%'});
@@ -1418,13 +1589,13 @@ var CategoryController = (function(){
 					success:function(response){	
 					 ;			
 					if(response.status){
-						$('#messagemodel .modal-title').text("doctor Delete");	
+						$('#messagemodel .modal-title').text("Service Delete");	
 						$('#messagemodel .modal-body').html("<div class='alert alert-success'>"+response.msg+"</div>");			
 						$('#messagemodel').modal({keyboard:false,backdrop:'static'});
 						$('#messagemodel').css({'width':'100%'});
 						dataTableAllCategory.ajax.reload( null, false );   
 					}else{
-							$('#messagemodel .modal-title').text("doctor Delete");	
+							$('#messagemodel .modal-title').text("Service Delete");	
 							$('#messagemodel .modal-body').html("<div class='alert alert-danger'>"+response.msg+"</div>");		
 							$('#messagemodel').modal({keyboard:false,backdrop:'static'});
 							$('#messagemodel').css({'width':'100%'});
@@ -1519,7 +1690,7 @@ var faqqController = (function(){
 					   // ;			
 						if(data.status){	
 						 
-						$('#messagemodel .modal-title').text("doctor");	
+						$('#messagemodel .modal-title').text("Service");	
 						$('#messagemodel .modal-body').html("<div class='alert alert-success'>"+data.msg+"</div>");			
 						$('#messagemodel').modal({keyboard:false,backdrop:'static'});
 						$('#messagemodel').css({'width':'100%'});
@@ -1527,7 +1698,7 @@ var faqqController = (function(){
 							 
 							 window.location.href ="/admin/faq";
 						}else{
-							$('#messagemodel .modal-title').text("doctor");	
+							$('#messagemodel .modal-title').text("Service");	
 							$('#messagemodel .modal-body').html("<div class='alert alert-danger'>"+data.msg+"</div>");			
 							$('#messagemodel').modal({keyboard:false,backdrop:'static'});
 							$('#messagemodel').css({'width':'100%'});
@@ -1617,13 +1788,13 @@ var faqqController = (function(){
 					success:function(response){	
 					 ;			
 					if(response.status){
-						$('#messagemodel .modal-title').text("doctor Delete");	
+						$('#messagemodel .modal-title').text("Service Delete");	
 						$('#messagemodel .modal-body').html("<div class='alert alert-success'>"+response.msg+"</div>");			
 						$('#messagemodel').modal({keyboard:false,backdrop:'static'});
 						$('#messagemodel').css({'width':'100%'});
 						dataTableAllFaq.ajax.reload( null, false );   
 					}else{
-							$('#messagemodel .modal-title').text("doctor Delete");	
+							$('#messagemodel .modal-title').text("Service Delete");	
 							$('#messagemodel .modal-body').html("<div class='alert alert-danger'>"+response.msg+"</div>");		
 							$('#messagemodel').modal({keyboard:false,backdrop:'static'});
 							$('#messagemodel').css({'width':'100%'});
@@ -1837,7 +2008,7 @@ var SliderController = (function(){
 					   // ;			
 						if(data.status){	
 						 
-						$('#messagemodel .modal-title').text("doctor");	
+						$('#messagemodel .modal-title').text("Service");	
 						$('#messagemodel .modal-body').html("<div class='alert alert-success'>"+data.msg+"</div>");			
 						$('#messagemodel').modal({keyboard:false,backdrop:'static'});
 						$('#messagemodel').css({'width':'100%'});
@@ -1845,7 +2016,7 @@ var SliderController = (function(){
 							 
 							 window.location.href ="/admin/sliders";
 						}else{
-							$('#messagemodel .modal-title').text("doctor");	
+							$('#messagemodel .modal-title').text("Service");	
 							$('#messagemodel .modal-body').html("<div class='alert alert-danger'>"+data.msg+"</div>");			
 							$('#messagemodel').modal({keyboard:false,backdrop:'static'});
 							$('#messagemodel').css({'width':'100%'});
@@ -1935,13 +2106,13 @@ var SliderController = (function(){
 					success:function(response){	
 					 ;			
 					if(response.status){
-						$('#messagemodel .modal-title').text("doctor Delete");	
+						$('#messagemodel .modal-title').text("Service Delete");	
 						$('#messagemodel .modal-body').html("<div class='alert alert-success'>"+response.msg+"</div>");			
 						$('#messagemodel').modal({keyboard:false,backdrop:'static'});
 						$('#messagemodel').css({'width':'100%'});
 						dataTableAllsliders.ajax.reload( null, false );   
 					}else{
-							$('#messagemodel .modal-title').text("doctor Delete");	
+							$('#messagemodel .modal-title').text("Service Delete");	
 							$('#messagemodel .modal-body').html("<div class='alert alert-danger'>"+response.msg+"</div>");		
 							$('#messagemodel').modal({keyboard:false,backdrop:'static'});
 							$('#messagemodel').css({'width':'100%'});
@@ -2147,7 +2318,7 @@ var galleryController = (function(){
 					   // ;			
 						if(data.status){	
 						 
-						$('#messagemodel .modal-title').text("doctor");	
+						$('#messagemodel .modal-title').text("Service");	
 						$('#messagemodel .modal-body').html("<div class='alert alert-success'>"+data.msg+"</div>");			
 						$('#messagemodel').modal({keyboard:false,backdrop:'static'});
 						$('#messagemodel').css({'width':'100%'});
@@ -2155,7 +2326,7 @@ var galleryController = (function(){
 							 
 							 window.location.href ="/admin/gallery";
 						}else{
-							$('#messagemodel .modal-title').text("doctor");	
+							$('#messagemodel .modal-title').text("Service");	
 							$('#messagemodel .modal-body').html("<div class='alert alert-danger'>"+data.msg+"</div>");			
 							$('#messagemodel').modal({keyboard:false,backdrop:'static'});
 							$('#messagemodel').css({'width':'100%'});
@@ -2247,13 +2418,13 @@ var galleryController = (function(){
 					success:function(response){	
 					 ;			
 					if(response.status){
-						$('#messagemodel .modal-title').text("doctor Delete");	
+						$('#messagemodel .modal-title').text("Service Delete");	
 						$('#messagemodel .modal-body').html("<div class='alert alert-success'>"+response.msg+"</div>");			
 						$('#messagemodel').modal({keyboard:false,backdrop:'static'});
 						$('#messagemodel').css({'width':'100%'});
 						dataTableAllgalleryory.ajax.reload( null, false );   
 					}else{
-							$('#messagemodel .modal-title').text("doctor Delete");	
+							$('#messagemodel .modal-title').text("Service Delete");	
 							$('#messagemodel .modal-body').html("<div class='alert alert-danger'>"+response.msg+"</div>");		
 							$('#messagemodel').modal({keyboard:false,backdrop:'static'});
 							$('#messagemodel').css({'width':'100%'});
@@ -2349,7 +2520,7 @@ var testimonialController = (function(){
 					   // ;			
 						if(data.status){	
 						 
-						$('#messagemodel .modal-title').text("doctor");	
+						$('#messagemodel .modal-title').text("Service");	
 						$('#messagemodel .modal-body').html("<div class='alert alert-success'>"+data.msg+"</div>");			
 						$('#messagemodel').modal({keyboard:false,backdrop:'static'});
 						$('#messagemodel').css({'width':'100%'});
@@ -2357,7 +2528,7 @@ var testimonialController = (function(){
 							 
 							 window.location.href ="/admin/testimonials";
 						}else{
-							$('#messagemodel .modal-title').text("doctor");	
+							$('#messagemodel .modal-title').text("Service");	
 							$('#messagemodel .modal-body').html("<div class='alert alert-danger'>"+data.msg+"</div>");			
 							$('#messagemodel').modal({keyboard:false,backdrop:'static'});
 							$('#messagemodel').css({'width':'100%'});
@@ -2447,13 +2618,13 @@ var testimonialController = (function(){
 					success:function(response){	
 					 ;			
 					if(response.status){
-						$('#messagemodel .modal-title').text("doctor Delete");	
+						$('#messagemodel .modal-title').text("Service Delete");	
 						$('#messagemodel .modal-body').html("<div class='alert alert-success'>"+response.msg+"</div>");			
 						$('#messagemodel').modal({keyboard:false,backdrop:'static'});
 						$('#messagemodel').css({'width':'100%'});
 						dataTableAllTestimonials.ajax.reload( null, false );   
 					}else{
-							$('#messagemodel .modal-title').text("doctor Delete");	
+							$('#messagemodel .modal-title').text("Service Delete");	
 							$('#messagemodel .modal-body').html("<div class='alert alert-danger'>"+response.msg+"</div>");		
 							$('#messagemodel').modal({keyboard:false,backdrop:'static'});
 							$('#messagemodel').css({'width':'100%'});
@@ -2558,7 +2729,7 @@ var usersController = (function(){
 							 
 							 window.location.href ="/admin/users";
 						}else{
-							$('#messagemodel .modal-title').text("doctor");	
+							$('#messagemodel .modal-title').text("Service");	
 							$('#messagemodel .modal-body').html("<div class='alert alert-danger'>"+data.msg+"</div>");			
 							$('#messagemodel').modal({keyboard:false,backdrop:'static'});
 							$('#messagemodel').css({'width':'100%'});
@@ -2648,13 +2819,13 @@ var usersController = (function(){
 					success:function(response){	
 					 ;			
 					if(response.status){
-						$('#messagemodel .modal-title').text("doctor Delete");	
+						$('#messagemodel .modal-title').text("Service Delete");	
 						$('#messagemodel .modal-body').html("<div class='alert alert-success'>"+response.msg+"</div>");			
 						$('#messagemodel').modal({keyboard:false,backdrop:'static'});
 						$('#messagemodel').css({'width':'100%'});
 						dataTableAllUsers.ajax.reload( null, false );   
 					}else{
-							$('#messagemodel .modal-title').text("doctor Delete");	
+							$('#messagemodel .modal-title').text("Service Delete");	
 							$('#messagemodel .modal-body').html("<div class='alert alert-danger'>"+response.msg+"</div>");		
 							$('#messagemodel').modal({keyboard:false,backdrop:'static'});
 							$('#messagemodel').css({'width':'100%'});

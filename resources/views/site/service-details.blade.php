@@ -88,7 +88,7 @@ if (!empty($categoryDetails->name)) {
 								break;
 						}
 										?>
-								<div itemscope itemtype="https://schema.org/Product" style="font-size: 12px;font-weight: 500;">
+								<div itemscope itemtype="https://schema.org/Product" style="font-size: 12px;font-weight: 500;color:#fff;">
 									<div class="text-primary" itemprop="name">
 										<h1 title="<?php  if (!empty($categoryDetails->name)) { $key = $categoryDetails->name;
 							echo trim($key); } ?>"><?php  if (!empty($categoryDetails->name)) { $key = $categoryDetails->name;

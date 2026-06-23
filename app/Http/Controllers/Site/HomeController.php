@@ -19,6 +19,7 @@ use App\Contact;
 use App\Services;
 use App\Categories;
 use App\Slider;
+use App\Blog;
 use App\Notifications\SendContactForm;
 
 class HomeController extends Controller
@@ -50,18 +51,174 @@ class HomeController extends Controller
 	
 	
 	
-	public function blog(Request $request)
-    {	 
-	 
-        return view('site.blog');
+	 public function blog(Request $request)
+{
+    $blogs = Blog::where('status', '1')
+        ->orderBy('id', 'DESC')
+        ->get(); // plain Collection — we're slicing manually, so paginate() isn't useful here
+
+//     if ($blogs->isEmpty()) {
+//         $firstBlog       = null;
+//         $popularArticles = collect();
+//         $tickerArticles  = collect();
+//         $listArticles    = collect();
+//     } else {
+        
+//     $firstBlog = $blogs->first() ? [
+//         'url'        => $blogs->first()->slug,
+//         'title'      => $blogs->first()->title,
+//         'name'       => $blogs->first()->category_name,
+//         'img'        => $blogs->first()->image_banner,
+//         'excerpt'    => $blogs->first()->description,
+//         'created_at' => $blogs->first()->created_at,
+//         'updated_at' => $blogs->first()->updated_at,
+//     ] : null;
+            
+
+//         $popularArticles = $blogs->slice(1, 3)->values()->map(function ($blog) {
+//     return [
+//         'url'        => $blog->slug,
+//         'title'      => $blog->title,
+//         'name'       => $blog->category_name,
+//         'img'        => $blog->image_banner, // or whichever image field is correct here
+//         'excerpt'    => $blog->description,
+//         'created_at' => $blog->created_at,
+//         'updated_at' => $blog->updated_at,
+//     ];
+// });
+//         $tickerArticles  = $blogs->slice(4, 10)->values();
+//         // $listArticles    = $blogs->slice(1)->values();
+//         $listArticles = $blogs->slice(1)->values()->map(function ($blog) {
+//         return [
+//         'url'        => $blog->slug,
+//         'title'      => $blog->title,
+//         'name'       => $blog->category_name,
+//         'img'        => $blog->blog_image, 
+//         'excerpt'    => $blog->description,
+//         'created_at' => $blog->created_at,
+//         'updated_at' => $blog->updated_at,
+//         ];
+//         });
+//     }
+
+
+
+
+
+    if ($blogs->isEmpty()) {
+        $firstBlog       = null;
+        $popularArticles = collect();
+        $tickerArticles  = collect();
+        $listArticles    = collect();
+    } else {
+        $firstBlog       = $blogs->first();
+        $popularArticles = $blogs->slice(1, 3)->values();
+        $tickerArticles  = $blogs->slice(4, 10)->values();
+        $listArticles    = $blogs->slice(1)->values();
     }
-	
-	 public function blogDetail(Request $request)
-    {	 
+
+   
+
+        $categories = Blog::select('category_name as name', DB::raw('COUNT(*) as count'))
+            ->whereNotNull('category_name')
+            ->where('status', '1')    
+            ->where('category_name', '!=', '')
+            ->groupBy('category_name')
+            ->orderBy('count', 'DESC')
+            ->get();
+
+    $tags = [];
+ 
+    return view('site.blog', compact(
+        'firstBlog',
+        'popularArticles',
+        'tickerArticles',
+        'listArticles',
+        'categories',
+        'tags'
+    ));
+}
 	 
-        return view('site.blog-detail');
-    }	
+    
+     public function blogdetails(Request $request, $slug)
+    {
+       
+        $blogDetails =  Blog::where('slug',$slug)->first();
+            
+    // dd($blogDetails);
+
+        $blogList = Blog::where('status', '1')->orderBy('id', 'DESC')->get();
+
+        $tickerItems = $blogList->slice(1, 2)->values();
+ 
+        // Build FAQ — filter empty pairs
+        $faqs = [];
+        for ($i = 1; $i <= 6; $i++) {
+            $q = $blogDetails["faqq{$i}"] ?? null;
+            $a = $blogDetails["faqa{$i}"] ?? null;
+            if ($q && $a) {
+                $faqs[] = ['q' => $q, 'a' => $a];
+            }
+        }
+ 
+        // Author gradient colour (rotated by article id)
+        $gradients = [
+            'linear-gradient(135deg,#1e3a5f 0%,#2563eb 50%,#0891b2 100%)',
+            'linear-gradient(135deg,#14532d 0%,#16a34a 50%,#0d9488 100%)',
+            'linear-gradient(135deg,#4c1d95 0%,#7c3aed 50%,#db2777 100%)',
+            'linear-gradient(135deg,#7c2d12 0%,#ea580c 50%,#d97706 100%)',
+            'linear-gradient(135deg,#064e3b 0%,#0f766e 50%,#0284c7 100%)',
+            'linear-gradient(135deg,#581c87 0%,#a21caf 50%,#db2777 100%)',
+        ];
+        $authorColor = $gradients[(int)($blogDetails['id'] ?? 0) % count($gradients)];
+ 
+        // Paragraphs — filter blank
+        $paragraphs = array_values(array_filter([
+            $blogDetails['paragraph1'] ?? '',
+            $blogDetails['paragraph2'] ?? '',
+            $blogDetails['paragraph3'] ?? '',
+            $blogDetails['paragraph4'] ?? '',
+            $blogDetails['paragraph5'] ?? '',
+            $blogDetails['paragraph6'] ?? '',
+        ], fn($p) => trim($p) !== ''));
+ 
+        $categories = [];
+        if(!empty($blogDetails['category_name'])){
+            $categories = Blog::select('category_name as name', DB::raw('COUNT(*) as count'))
+            ->whereNotNull('category_name')
+            ->where('status', '1')
+            ->where('category_name',$blogDetails['category_name'])
+            ->where('category_name', '!=', '')
+            ->groupBy('category_name')
+            ->orderBy('count', 'DESC')
+            ->get();
+        }
+
+       
+        return view('site.blog-details', compact(
+            'blogDetails','blogList','tickerItems','categories',
+            'faqs','authorColor','paragraphs','slug'
+        ));
+         
+    }
 	 	
+
+    public function blogCategory(Request $request, $slug)
+    {
+
+   
+        $blogs = Blog::where('status', '1')->where('category_name',$slug)->orderBy('id', 'DESC')->get();
+ 
+        $categories = Blog::select('category_name as name', DB::raw('COUNT(*) as count'))
+        ->whereNotNull('category_name')
+        ->where('status', '1')
+        ->where('category_name',$slug)
+        ->where('category_name', '!=', '')
+        ->groupBy('category_name')
+        ->orderBy('count', 'DESC')
+        ->get();
+        return view('site.blog-category', ['categories' => $categories,'blogs'=>$blogs]);
+    }
 	/**
      * Show the application dashboard.
      *
@@ -199,8 +356,7 @@ class HomeController extends Controller
 		return view('site.refund-policy');
     }
 	public function careers(Request $request)
-    {	 
-       
+    {	        
 		return view('site.careers');
     }
 

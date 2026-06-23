@@ -55,8 +55,10 @@ Route::get('/privacy-policy', [App\Http\Controllers\Site\HomeController::class, 
 Route::get('/copyright-policy', [App\Http\Controllers\Site\HomeController::class, 'copyrightpolicy'])->name('copyright.policy');
 Route::get('/refund-policy', [App\Http\Controllers\Site\HomeController::class, 'refundPolicy'])->name('refund.policy');
 Route::get('/careers', [App\Http\Controllers\Site\HomeController::class, 'careers'])->name('careers');
-Route::get('/blog', [App\Http\Controllers\Site\HomeController::class, 'refundPolicy'])->name('blog.list');
-Route::get('/blog/{slug}', [App\Http\Controllers\Site\HomeController::class, 'refundPolicy'])->name('blog.details');
+Route::get('/blog', [App\Http\Controllers\Site\HomeController::class, 'blog'])->name('blog.list');
+Route::get('/blog/{slug}', [App\Http\Controllers\Site\HomeController::class, 'blogDetails'])->name('blog.details');
+Route::get('/blog/category/{url}',[App\Http\Controllers\Site\HomeController::class, 'blogCategory'])->name('category.blog');
+
 
 Route::post('send-email', [App\Http\Controllers\Site\HomeController::class, 'sendEmail'])->name('send.email'); 
 Route::post('/search/ajaxView',[App\Http\Controllers\Site\HomeController::class, 'ajaxView'] );
@@ -179,8 +181,18 @@ Route::get('/admin/blogs/status/{id}/{val}', [BlogsController::class, 'status'])
 Route::get('/admin/blogs/get-blogs', [BlogsController::class, 'getblogsPagination']);
 
 Route::get('/admin/blogs/delete/{id}', [BlogsController::class, 'delete']);
-Route::get('/admin/blogs/del_icon/{id}', [BlogsController::class, 'deleteImage']);
+Route::get('/admin/blogs/del_icon/{id}/{blog_image}', [BlogsController::class, 'deleteImage']);
 
+
+
+
+    // Section-based AJAX save endpoints (5-section edit form)
+    Route::post('admin/blogMetaUpdate/{id}',    [BlogsController::class, 'blogMetaUpdate'])->name('admin.blogs.metaUpdate');
+    Route::post('admin/blogUpdateAbout/{id}',   [BlogsController::class, 'blogUpdateAbout'])->name('admin.blogs.updateAbout');
+    Route::post('admin/blogUpdateContent/{id}', [BlogsController::class, 'blogUpdateContent'])->name('admin.blogs.updateContent');
+    Route::post('admin/blogUpdateFaq/{id}',     [BlogsController::class, 'blogUpdateFaq'])->name('admin.blogs.updateFaq');
+    Route::post('admin/blogUpdateImage/{id}',   [BlogsController::class, 'blogUpdateImage'])->name('admin.blogs.updateImage');
+ 
 
 
 

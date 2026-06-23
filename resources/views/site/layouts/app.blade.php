@@ -155,13 +155,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                     <ul class="navbar-nav ms-auto" id="nav" style="display: none;">
 									
 										<li>
-                                            <a href="{{url('/')}}">Home</a>    
+                                            <a href="{{route('home')}}">Home</a>    
                                         </li>
 										<li>
-                                            <a href="{{url('about-us')}}">About Us</a>    
+                                            <a href="{{route('about-us')}}">About Us</a>    
                                         </li>
 										<li>
-                                            <a href="{{url('services')}}">Service</a>
+                                            <a href="{{route('services.list')}}">Service</a>
                                             <ul class="row megamenu">
 												<?php 	$categoryList = App\Categories::where('status','1')->get();
 														if($categoryList){
@@ -169,14 +169,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                                 <li class="col-lg-3">
 												
 												
-                                                    <span class="mb-0 mb-lg-2 d-block py-2 p-lg-0 px-4 px-lg-0 text-uppercase sub-title font-weight-700 display-30"><a href="{{url('services/'.$catValue->slug)}}">{{$catValue->name}}</a></span>
+                                                    <span class="mb-0 mb-lg-2 d-block py-2 p-lg-0 px-4 px-lg-0 text-uppercase sub-title font-weight-700 display-30"><a href="{{ route('service.details', ['slug' => $catValue->slug]) }}">{{$catValue->name}}</a></span>
                                                     <ul>
 													<?php  $serviceList = App\Services::where('status','1')->where('categories_id',$catValue->id)->get();
 
 														if($serviceList){
 															foreach($serviceList as $serviceValue){
 														?>
-                                                        <li><a href="{{url('services/'.$catValue->slug.'/'.$serviceValue->service_slug)}}"><i class="fas fa-sliders-h me-2"></i>{{$serviceValue->name}}</a></li>
+                                                        <li><a href="{{ route('child.details', ['slug' => $catValue->slug, 'mslug' => $serviceValue->service_slug]) }}"><i class="fas fa-sliders-h me-2"></i>{{$serviceValue->name}}</a></li>
                                                         
 														<?php  } } ?>
                                                     </ul>
@@ -188,7 +188,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                             </ul>
                                         </li>
 										<li>
-                                            <a href="{{url('portfolio')}}">Portfolio</a>    
+                                            <a href="{{route('portfolio')}}">Portfolio</a>    
                                         </li>
 									 
                                     </ul>
@@ -197,8 +197,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                     <!-- start attribute navigation -->
                                     <div class="attr-nav align-items-xl-center ms-xl-auto main-font">
                                         <ul>
-                                            <!--<li class="search"><a href="#!"><i class="fas fa-search"></i></a></li>-->
-                                            <li class="d-none d-xl-inline-block"><a href="{{url('contact-us')}}" class="btn-style1 medium"><span>Contact Us</span></a></li>
+                                         
+                                            <li class="d-none d-xl-inline-block"><a href="{{route('contact-us')}}" class="btn-style1 medium"><span>Contact Us</span></a></li>
                                         </ul>
                                     </div>
                                     <!-- end attribute navigation -->
@@ -238,7 +238,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         </div>
                         <div class="col-md-6 col-lg-4 mt-1-9 text-start text-lg-center wow fadeIn" data-wow-delay="400ms">
                             <div class="footer-logo">
-                                <a href="{{url('/')}}"><img src="{{asset('site/img/logos/webs.png')}}" alt="..." width="100" height="150"></a>
+                                <a href="{{route('home')}}"><img src="{{asset('site/img/logos/webs.png')}}" alt="..." width="100" height="150"></a>
                             </div>
                         </div>
                         <div class="col-md-6 col-lg-4 mt-1-9 wow fadeIn" data-wow-delay="600ms">

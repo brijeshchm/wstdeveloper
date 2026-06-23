@@ -14,7 +14,7 @@ WebSolutionTechnology is a trusted IT solutions company specializing in website 
                             <div class="col-lg-9 col-xl-7 col-xxl-6">
                                 <h1 class="display-16 display-sm-7 display-lg-4 display-xl-3 mb-2-9">The quickest path to success.</h1>
                                 <p class="mb-2-3 font-weight-500 lead d-none d-sm-block">Our priority is to provide outstanding service to our customers while equipping our employees with the best training.</p>
-                                <!--<a href="contact.html" class="btn-style1"><span>Begin your journey</span></a>-->
+                                <a href="{{ route('contact-us') }}" class="btn-style1"><span>Begin your journey</span></a>
                             </div>
                         </div>
                     </div>
@@ -25,7 +25,7 @@ WebSolutionTechnology is a trusted IT solutions company specializing in website 
                             <div class="col-lg-9 col-xl-7 col-xxl-6">
                                 <h1 class="display-16 display-sm-7 display-lg-4 display-xl-3 mb-2-9">Premium services designed for your success.</h1>
                                 <p class="mb-2-3 font-weight-500 lead d-none d-sm-block">We are committed to delivering exceptional customer service while ensuring our employees receive the finest training.</p>
-                                <!--<a href="contact.html" class="btn-style1"><span>Start now</span></a>-->
+                             
                             </div>
                         </div>
                     </div>
@@ -36,7 +36,7 @@ WebSolutionTechnology is a trusted IT solutions company specializing in website 
                             <div class="col-lg-9 col-xl-7 col-xxl-6">
                                 <h1 class="display-16 display-sm-7 display-lg-4 display-xl-3 mb-2-9">Turn your digital ideas into reality with us.</h1>
                                 <p class="mb-2-3 font-weight-500 lead d-none d-sm-block">We prioritize delivering exceptional service to our customers while empowering our employees with top-quality training.</p>
-                               <!-- <a href="contact.html" class="btn-style1"><span>Kickstart your journey</span></a>-->
+                          
                             </div>
                         </div>
                     </div>
@@ -62,11 +62,11 @@ WebSolutionTechnology is a trusted IT solutions company specializing in website 
 				
 				
                 <div class="row mt-n1-9">
-				<?php //echo "<pre>";print_r($categories); die; 
+				<?php  
 				
 					if($categories){ 
 					foreach($categories as $categorie){
-				//echo "<pre>"; print_r($categorie);
+			 
 				?>
                     <div class="col-md-6 col-xl-4 mt-1-9 wow fadeIn" data-wow-delay="200ms">
                         <div class="card card-style01 border-0 rounded-0">
@@ -80,15 +80,15 @@ WebSolutionTechnology is a trusted IT solutions company specializing in website 
                             <div class="title">
                                 <div class="d-flex align-items-center">
                                     <img src="{{asset('site/img/icons/09.png')}}" alt="...">
-                                    <h4 class="h5 mb-0 ms-3"><a href="{{url('services/'.$categorie['slug'])}}"><?php echo $categorie["name"];?></a></h4>
+                                    <h4 class="h5 mb-0 ms-3"><a href="{{route('service.details',$categorie['slug'])}}"><?php echo $categorie["name"];?></a></h4>
                                 </div>
                                 <a href="#!"><i class="fas fa-arrow-right"></i></a>
                             </div>
                             <div class="overlay text-center">
                                 <div>
                                     <img src="{{asset('site/img/icons/icon-web-development.png')}}" class="mb-3" alt="...">
-                                    <h3 class="text-white h4 mb-3"><a href="{{url('services/'.$categorie['slug'])}}" class="text-white text-primary-hover"><?php echo $categorie["name"];?></a></h3>
-                                    <p class="mb-0 text-white"><a href="{{url('services/'.$categorie['slug'])}}"><?php echo $categorie["subTital"];?></a></p>
+                                    <h3 class="text-white h4 mb-3"><a href="{{route('service.details',$categorie['slug'])}}" class="text-white text-primary-hover"><?php echo $categorie["name"];?></a></h3>
+                                
                                 </div>
                             </div>
                         </div>
@@ -97,65 +97,7 @@ WebSolutionTechnology is a trusted IT solutions company specializing in website 
 					<?php  } } ?>	
                 </div>
 				
-				    <!--<div class="row mt-n1-9">
-                    <div class="col-md-6 col-xl-4 mt-1-9 wow fadeIn" data-wow-delay="200ms">
-                        <div class="card card-style01 border-0 rounded-0">
-                            <img src="{{asset('site/img/content/01.jpg')}}" alt="...">
-                            <div class="title">
-                                <div class="d-flex align-items-center">
-                                    <img src="{{asset('site/img/icons/09.png')}}" alt="...">
-                                    <h4 class="h5 mb-0 ms-3"><a href="{{url('service')}}">Hosting Services</a></h4>
-                                </div>
-                                <a href="#!"><i class="fas fa-arrow-right"></i></a>
-                            </div>
-                            <div class="overlay text-center">
-                                <div>
-                                    <img src="{{asset('site/img/icons/icon-web-development.png')}}" class="mb-3" alt="...">
-                                    <h3 class="text-white h4 mb-3"><a href="{{url('service')}}" class="text-white text-primary-hover">Hosting Services</a></h3>
-                                    <p class="mb-0 text-white">We focus on the best practices for it solutions and services</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-xl-4 mt-1-9 wow fadeIn" data-wow-delay="400ms">
-                        <div class="card card-style01 border-0 rounded-0">
-                            <img src="{{asset('site/img/content/02.jpg')}}" alt="...">
-                            <div class="title">
-                                <div class="d-flex align-items-center">
-                                    <img src="{{asset('site/img/icons/10.png')}}" alt="...">
-                                    <h4 class="h5 mb-0 ms-3"><a href="{{url('service')}}">Industries Projects</a></h4>
-                                </div>
-                                <a href="#!"><i class="fas fa-arrow-right"></i></a>
-                            </div>
-                            <div class="overlay text-center">
-                                <div>
-                                    <img src="{{asset('site/img/icons/icon-branding.png')}}" class="mb-3" alt="...">
-                                    <h3 class="text-white h4 mb-3"><a href="{{url('service')}}" class="text-white text-primary-hover">Industries Projects</a></h3>
-                                    <p class="mb-0 text-white">We focus on the best practices for it solutions and services</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-xl-4 mt-1-9 wow fadeIn" data-wow-delay="600ms">
-                        <div class="card card-style01 border-0 rounded-0">
-                            <img src="{{asset('site/img/content/03.jpg')}}" alt="...">
-                            <div class="title">
-                                <div class="d-flex align-items-center">
-                                    <img src="{{asset('site/img/icons/11.png')}}" alt="...">
-                                    <h4 class="h5 mb-0 ms-3"><a href="{{url('service')}}">Digital Marketing</a></h4>
-                                </div>
-                                <a href="#!"><i class="fas fa-arrow-right"></i></a>
-                            </div>
-                            <div class="overlay text-center">
-                                <div>
-                                    <img src="{{asset('site/img/icons/icon-digital-marketing.png')}}" class="mb-3" alt="...">
-                                    <h3 class="text-white h4 mb-3"><a href="{{url('service')}}" class="text-white text-primary-hover">Digital Marketing</a></h3>
-                                    <p class="mb-0 text-white">We focus on the best practices for it solutions and services</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>-->
+				   
             </div>
         </section>
 
@@ -197,7 +139,7 @@ WebSolutionTechnology is a trusted IT solutions company specializing in website 
                                     </ul>
                                 </div>
                             </div>
-                           <!-- <a href="about.html" class="btn-style1 wow fadeIn" data-wow-delay="200ms"><span>Read more</span></a>-->
+                           <a href="{{ route('about-us') }}" class="btn-style1 wow fadeIn" data-wow-delay="200ms"><span>Read more</span></a>
                         </div>
                     </div>
                 </div>
