@@ -697,9 +697,9 @@ class BlogsController extends Controller
 
             try {
                 if ($formField === 'image_banner') {
-                    $savedFilename = $this->saveImageSmart($file, $destinationPath, 1500, 800);
+                    $savedFilename = $this->saveImageSmart($file, $destinationPath, 900, 600);
                 } elseif ($formField === 'blog_image') {
-                    $savedFilename = $this->saveImageSmart($file, $destinationPath, 800, 800);
+                    $savedFilename = $this->saveImageSmart($file, $destinationPath, 400, 300);
                 }  
             } catch (\Exception $e) {
                 // Skip this file rather than fatally crashing the whole save
