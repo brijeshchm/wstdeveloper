@@ -646,6 +646,7 @@ class BlogsController extends Controller
             'top_content'     => 'nullable|string',
             'bottom_heading'  => 'nullable|string|max:255',
             'bottom_content'  => 'nullable|string',
+            'conclusion'  => 'nullable|string',
         ]);
  
         $blog->fill($validated);

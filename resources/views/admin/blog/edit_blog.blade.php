@@ -306,6 +306,16 @@
                                         <textarea rows="4" class="form-control no-resize" name="bottom_content">{{ old('bottom_content', $edit_data->bottom_content ?? '') }}</textarea>
                                     </div>
                                 </div>
+                                <div class="col-sm-12">
+                                    <label>Conclusion</label>
+                                    <div class="form-group">
+                                        <textarea rows="4" class="form-control no-resize" name="conclusion">{{ old('conclusion', $edit_data->conclusion ?? '') }}</textarea>
+                                    </div>
+                                </div>
+
+
+
+
                             </div>
 
                             <div class="row clearfix">

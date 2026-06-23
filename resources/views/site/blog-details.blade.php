@@ -247,6 +247,23 @@
             </div>
             @endif
 
+
+              <div class="prose-article">
+
+          
+                <h2 class="reveal-x section-heading">
+                    <span class="heading-bar mr-3"></span>
+                 Conclusion
+                </h2>
+           
+
+                @if(!empty($blogDetails['conclusion']))
+                <div class="reveal" style="transition-delay:0.05s;">
+                    {!! $blogDetails['conclusion'] !!}
+                </div>
+                @endif
+
+                </div>
             {{-- ── TAGS ── --}}
             @if(count($blogList))
             <div class="reveal mt-5 pt-4 tags-row">

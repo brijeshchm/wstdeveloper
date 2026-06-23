@@ -31,7 +31,7 @@ protected $fillable = [
     'meta_description',
     'heading',
     'blog_description',
-    
+    'conclusion',    
     'blog_content',
     'top_heading',
     'top_content',
