@@ -368,10 +368,10 @@ class BlogsController extends Controller
 		$blog = Blog::findOrFail($id);			 
 		if($blog->blog_image!='')
 		{
-			$image = unserialize($blog->blog_image);
-			$large = $image['blog_image']['src'];
-			if(!empty($image['blog_image']['src'])){
-			$thumbnail = $image['blog_image']['src'];
+			$image = json_decode($blog->blog_image);
+			$large = $image->blog_image->src;
+			if(!empty($image->blog_image->src)){
+			$thumbnail = $image->blog_image->src;
 			if (file_exists($thumbnail))
 			{
 				unlink($thumbnail);
@@ -383,12 +383,12 @@ class BlogsController extends Controller
 			} 
 		}
 		
-		if($blog->blog_icons!='')
+		if($blog->image_banner!='')
 		{
-			$image = unserialize($blog->blog_icons);
-			$large = $image['blog_icons']['src'];
-			if(!empty($image['blog_icons']['src'])){
-			$thumbnail = $image['blog_icons']['src'];
+			$image = json_decode($blog->image_banner);
+			$large = $image->image_banner->src;
+			if(!empty($image->image_banner->src)){
+			$thumbnail = $image->image_banner->src;
 			if (file_exists($thumbnail))
 			{
 				unlink($thumbnail);
@@ -412,44 +412,7 @@ class BlogsController extends Controller
 		return response()->json(['status'=>$status,'msg'=>$msg],200); 
     }
   
- 
-	 /*
-     * Remove the specified resource from storage del_icon.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function del_icon($id)
-    {
-       	 
-		$delet_data = Blog::findOrFail($id); 	
-		if($delet_data->blog_icons!='')
-		{		
-			 
-			$image = unserialize($delet_data->blog_icons);
-			
-			$large = $image['blog_icons']['src'];
-			if(!empty($image['blog_icons']['src'])){
-			$thumbnail = $image['blog_icons']['src'];
-			if (file_exists($thumbnail))
-			{
-			unlink($thumbnail);
-			}  
-			}
-			if (file_exists($large))
-			{
-			unlink($large);
-			} 
-		 
-		 
-		}
- 
-		$edit_data = array('blog_icons'  =>"",);	 
-		$del = Blog::where('id',$id)->update($edit_data);			 		
-		return redirect('admin/blog/edit/'.base64_encode($id))->with("success","Blog Icons deleted successfully.");
-			
-    }
- 
+  
  
 	 /*
      * Remove the specified resource from storage del_icon.
