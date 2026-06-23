@@ -40,7 +40,7 @@ Web Solution Technology offers expert software development, website design, cust
                                 <span class="sm-title">About Us</span>
                                 <h2 class="mb-0 h1">We’re Delivering The Best Customer Experience</h2>
                                  <p>
-<strong>Web Solution Technology </strong> is a trusted India-based IT, consulting, and outsourcing company committed to helping businesses thrive in the digital age. Since our establishment on May 8, 2019, we have grown into a strong technology partner for organizations across multiple industries, offering expertise in software development, website and mobile app development, cloud solutions, artificial intelligence, and database management. Backed by a skilled team and a customer-centric approach, we deliver innovative, reliable, and result-driven digital solutions tailored to business growth and long-term success.</p>
+<strong>Web Solution Technology </strong> is a trusted Indian IT, consulting, and outsourcing company committed to helping businesses thrive in the digital era. Since our inception on May 8, 2019, we have established ourselves as a robust technology partner for organizations across various industries. We offer expertise in software development, website and mobile app development, cloud solutions, artificial intelligence, and database management. Backed by a skilled team and a client-centric approach, we deliver innovative, reliable, and result-oriented digital solutions designed to drive business growth and long-term success.</p>
                             </div>
                             <div class="mb-1-9">
                                 <div class="d-flex about-text mb-1-9">
@@ -49,7 +49,7 @@ Web Solution Technology offers expert software development, website design, cust
                                     </div>
                                     <div class="flex-grow-1 ms-3">
                                         <h4 class="h5">Our Mission</h4>
-                                        <p class="mb-0">Our mission is to empower businesses with innovative technology solutions, exceptional service, and result-driven strategies while building long-term relationships based on trust, quality, and client success.</p>
+                                        <p class="mb-0">Our goal is to provide businesses with innovative technology solutions that drive growth, improve operational efficiency, and ensure long-term digital success. We are committed to delivering exceptional services, strategic approaches, and high-quality IT solutions tailored to the unique needs of each client. At Web Solution Technology, we focus on building enduring relationships founded on trust, transparency, reliability, and a collaborative spirit dedicated to our clients' success.</p>
                                     </div>
                                 </div>
                                 <div class="d-flex about-text">
