@@ -363,8 +363,16 @@
                         <div class="related-item">
                             <a href="{{ route('blog.details', $rel['slug']) }}" class="d-flex align-items-start">
                                 <div class="related-thumb mr-3 img-zoom-wrap">
-                                    @if(!empty($rel['img']))
-                                        <div class="img-inner" style="background-image: url('{{ $rel['img'] }}');"></div>
+
+                                    @php
+                                    $blogImage = null;
+                                    if (isset($rel) && !empty($rel->blog_image)) {
+                                    $blogImage = json_decode($rel->blog_image);
+                                    }
+
+                                    @endphp
+                                    @if(!empty($blogImage))
+                                        <div class="img-inner" style="background-image: url('{{ asset($blogImage->blog_image->src) }}');"></div>
                                     @else
                                         <div class="img-inner related-thumb-fallback" style="background: {{ $rg }};">
                                             <span>{{ strtoupper(substr($rel['name'] ?? 'Q', 0, 1)) }}</span>
