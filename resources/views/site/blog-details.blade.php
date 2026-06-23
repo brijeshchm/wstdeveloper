@@ -66,17 +66,17 @@
             {{-- ── HERO IMAGE ── --}}
             @php
                 $vicons = null;
-                if (isset($blogDetails) && !empty($blogDetails->blog_image)) {
-                    $vicons = json_decode($blogDetails->blog_image);
+                if (isset($blogDetails) && !empty($blogDetails->image_banner)) {
+                    $vicons = json_decode($blogDetails->image_banner);
                 }
-                $heroStyle = !empty($vicons->blog_image->src)
-                    ? "background-image: url('" . asset($vicons->blog_image->src) . "'); background-size: cover; background-position: center;"
+                $heroStyle = !empty($vicons->image_banner->src)
+                    ? "background-image: url('" . asset($vicons->image_banner->src) . "'); background-size: cover; background-position: center;"
                     : 'background: linear-gradient(135deg,#1e3a5f 0%,#2563eb 50%,#0891b2 100%);';
             @endphp
             <div id="hero-card" class="reveal hero-card mb-5">
                 <div class="hero-thumb" style="{{ $heroStyle }}">
 
-                    @if(empty($vicons->blog_image->src))
+                    @if(empty($vicons->image_banner->src))
                     <div class="hero-thumb-letter">
                         <span>{{ strtoupper(substr($blogDetails['name'] ?? 'Q', 0, 1)) }}</span>
                     </div>
