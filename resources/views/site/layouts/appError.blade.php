@@ -10,7 +10,8 @@
 <meta name="author" content="Website Devopment">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
-<meta name="robots" content="noindex, nofollow">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="{{ url()->current() }}" />
 <link rel="shortcut icon" href="{{asset('site/img/logos/favicon.png')}}">
 <link rel="apple-touch-icon" href="{{asset('site/img/logos/apple-touch-icon-57x57.JPG')}}">
 <link rel="apple-touch-icon" sizes="72x72" href="{{asset('site/img/logos/apple-touch-icon-72x72.JPG')}}">
