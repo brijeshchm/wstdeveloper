@@ -1,7 +1,7 @@
 @extends('site.layouts.app')
 @section('title')
 WebSolutionTechnology | Website Development, Software Development & Digital Marketing Services @endsection 
-@section('keyword')
+@section('keywords')
 WebSolutionTechnology, website development services, web development company, custom software development, software development company, web application development, digital marketing agency, SEO services, search engine optimization, ecommerce website development, online store development, responsive web design, professional website design, business website development, corporate website solutions, website maintenance services, web hosting services, cloud hosting solutions, IT consulting services, technology solutions provider, custom web applications, mobile-friendly websites, digital transformation services, branding and marketing solutions, website redesign services. @endsection
 @section('description')
 WebSolutionTechnology is a trusted IT solutions company specializing in website development, custom software solutions, web application development, digital marketing, SEO, web hosting, and ongoing maintenance services. We empower businesses with secure, scalable, and innovative technology solutions designed to enhance online presence, improve operational efficiency, and drive sustainable growth @endsection
