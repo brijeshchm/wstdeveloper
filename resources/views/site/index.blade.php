@@ -6,20 +6,38 @@ Web Solution Technology, website development services,  digital marketing agency
 @section('description')
 Web Solution Technology is a trusted IT solutions company specializing in website development, web application development, digital marketing, SEO .@endsection
 @section('content')
+<style>
+    .banner-section {
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 580px; /* adjust as needed */
+    display: flex;
+    align-items: center;
+}
+</style>
         <section class="py-0 mx-lg-1-6 mx-xl-2-5 mx-xxl-2-9">
             <div class="slider-fade1 owl-carousel owl-theme w-100">
-                <div class="item bg-img cover-background pt-14 pb-22 py-sm-18 py-lg-20 py-xl-24" data-background="{{asset('site/img/banner/home-banner.png')}}">
-                    <div class="container position-relative z-index-9">
-                        <div class="row align-items-center justify-content-xl-end">
-                            <div class="col-lg-9 col-xl-7 col-xxl-6">
-                                <h1 class="display-16 display-sm-7 display-lg-4 display-xl-3 mb-2-9">The quickest path to success.</h1>
-                                <p class="mb-2-3 font-weight-500 lead d-none d-sm-block">Our priority is to provide outstanding service to our customers while equipping our employees with the best training.</p>
-                                <a href="{{ route('contact-us') }}" class="btn-style1"><span>Begin your journey</span></a>
-                            </div>
-                        </div>
-                    </div>
+                <div class="item bg-img cover-background banner-section"
+                data-background="{{ asset('site/img/banner/home-banner.png') }}">
+                <div class="container position-relative z-index-9 h-100">
+                <div class="row align-items-center justify-content-xl-end h-100">
+                <div class="col-lg-9 col-xl-7 col-xxl-6">
+                <!-- <h1 class="display-16 display-sm-7 display-lg-4 display-xl-3 mb-2-9">
+                The quickest path to success.
+                </h1>
+                <p class="mb-2-3 font-weight-500 lead d-none d-sm-block">
+                Our priority is to provide outstanding service to our customers while equipping our employees with the best training.
+                </p>
+                <a href="{{ route('contact-us') }}" class="btn-style1">
+                <span>Begin your journey</span>
+                </a> -->
                 </div>
-                <div class="item bg-img cover-background pt-14 pb-22 py-sm-18 py-lg-20 py-xl-24" data-background="{{asset('site/img/banner/slide-02.jpg')}}">
+                </div>
+                </div>
+                </div>
+                <div class="item bg-img cover-background banner-section pt-14 pb-22 py-sm-18 py-lg-20 py-xl-24" data-background="{{asset('site/img/banner/slide-02.png')}}">
                     <div class="container position-relative z-index-9">
                         <div class="row align-items-center justify-content-xl-end">
                             <div class="col-lg-9 col-xl-7 col-xxl-6">
@@ -30,7 +48,7 @@ Web Solution Technology is a trusted IT solutions company specializing in websit
                         </div>
                     </div>
                 </div>
-                <div class="item bg-img cover-background pt-14 pb-22 py-sm-18 py-lg-20 py-xl-24" data-background="{{asset('site/img/banner/slide-03.jpg')}}">
+                <div class="item bg-img cover-background banner-section pt-14 pb-22 py-sm-18 py-lg-20 py-xl-24" data-background="{{asset('site/img/banner/slide-03.jpg')}}">
                     <div class="container position-relative z-index-9">
                         <div class="row align-items-center justify-content-xl-end">
                             <div class="col-lg-9 col-xl-7 col-xxl-6">
