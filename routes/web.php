@@ -34,6 +34,7 @@ Route::post('/register',[App\Http\Controllers\UserAuth\AuthController::class,'sa
 
 
 Route::get('/', [App\Http\Controllers\Site\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\Site\HomeController::class, 'index'])->name('home');
 Route::get('/about-us', [App\Http\Controllers\Site\HomeController::class, 'aboutUs'])->name('about-us');
 Route::get('/portfolio', [App\Http\Controllers\Site\HomeController::class, 'Portfolio'])->name('portfolio');
 Route::get('/contact-us', [App\Http\Controllers\Site\HomeController::class, 'Contact'])->name('contact-us');
