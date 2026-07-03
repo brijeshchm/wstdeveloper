@@ -852,60 +852,44 @@ Web Solution Technology is a trusted IT solutions company specializing in websit
                     <h2 class="mb-0 h1">Read Our Latest Insights</h2>
                 </div>
                 <div class="row g-xl-5 mt-n2-2">
+				
+				@if(!empty($blogs))
+					@foreach($blogs as $blog)
                     <div class="col-md-6 col-lg-4 mt-2-2 wow fadeInUp" data-wow-delay="300ms">
                         <article class="card card-style-04 h-100 rounded-0">
                             <div class="blog-img position-relative overflow-hidden">
-                                <img src="{{asset('site/img/blog/blog-01.jpg')}}" alt="...">
+							<?php 
+						// echo "<pre>";print_r($blog);die;
+							
+							if($blog->blog_image){
+
+							$blog_image   = json_decode($blog->blog_image);
+				 
+							if($blog_image){
+
+								?>
+							<img src="{{asset($blog_image->blog_image->src)}}" alt="{{$blog_image->blog_image->src}}" width="350" height="200">
+
+							<?php } } ?>
                                 <div class="card-list">
-                                    <a href="#!">Solutions</a>
+                                    <a href="{{route('category.blog',$blog->category_name)}}">{{ucfirst(str_replace('-',' ',$blog->category_name))}}</a>
                                 </div>
                             </div>
                             <div class="card-body p-1-9">
-                                <span class="text-primary d-block mb-2 font-weight-600">June 01, 2023</span>
-                                <h3 class="h4 mb-0"><a href="#">10 reliable sources to learn about IT solution.</a></h3>
+                                <span class="text-primary d-block mb-2 font-weight-600">{{date('M d Y', strtotime($blog->created_at))}}</span>
+                                <h3 class="h4 mb-0"><a href="{{route('blog.details',$blog->slug)}}">{{$blog->title}}</a></h3>
                             </div>
-                            <!--<div class="d-flex fw-bold border-top px-1-9 py-3 border-color-light-black justify-content-between">
-                                <a href="blog-details.html">Read more</a>
+                            <div class="d-flex fw-bold border-top px-1-9 py-3 border-color-light-black justify-content-between">
+                                <a href="{{route('blog.details',$blog->slug)}}">Read more</a>
                                 <a href="blog-details.html"><i class="ti-arrow-right"></i></a>
-                            </div>-->
+                            </div>
                         </article>
                     </div>
-                    <div class="col-md-6 col-lg-4 mt-2-2 wow fadeInUp" data-wow-delay="450ms">
-                        <article class="card card-style-04 h-100 rounded-0">
-                            <div class="blog-img position-relative overflow-hidden">
-                                <img src="{{asset('site/img/blog/blog-02.jpg')}}" alt="...">
-                                <div class="card-list">
-                                    <a href="#!">Marketing</a>
-                                </div>
-                            </div>
-                            <div class="card-body p-1-9">
-                                <span class="text-primary d-block mb-2 font-weight-600">May 29, 2024</span>
-                                <h3 class="h4 mb-0"><a href="#">How digital marketing can increase your profit!</a></h3>
-                            </div>
-                            <!--<div class="d-flex fw-bold border-top px-1-9 py-3 border-color-light-black justify-content-between">
-                                <a href="blog-details.html">Read more</a>
-                                <a href="blog-details.html"><i class="ti-arrow-right"></i></a>
-                            </div>-->
-                        </article>
-                    </div>
-                    <div class="col-md-6 col-lg-4 mt-2-2 wow fadeInUp" data-wow-delay="600ms">
-                        <article class="card card-style-04 h-100 rounded-0">
-                            <div class="blog-img position-relative overflow-hidden">
-                                <img src="{{asset('site/img/blog/blog-03.jpg')}}" alt="...">
-                                <div class="card-list">
-                                    <a href="#!">Development</a>
-                                </div>
-                            </div>
-                            <div class="card-body p-1-9">
-                                <span class="text-primary d-block mb-2 font-weight-600">Jan 25, 2025</span>
-                                <h3 class="h4 mb-0"><a href="#">Simple guidance for you in web development.</a></h3>
-                            </div>
-                            <!--<div class="d-flex fw-bold border-top px-1-9 py-3 border-color-light-black justify-content-between">
-                                <a href="blog-details.html">Read more</a>
-                                <a href="blog-details.html"><i class="ti-arrow-right"></i></a>
-                            </div>-->
-                        </article>
-                    </div>
+					@endforeach
+					@endif
+					
+                    
+                    
                 </div>
             </div>
         </section>

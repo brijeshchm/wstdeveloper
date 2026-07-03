@@ -45,7 +45,9 @@ class HomeController extends Controller
 		$categories = Categories::where('status', '1')->get();
 		$services = Services::where('status', '1')->where('image','!=','')->get();
 		$sliders = Slider::where('status', '1')->where('image','!=','')->get();
-        return view('site.index',['sliders'=>$sliders,'services'=>$services,'categories'=>$categories]);
+		$blogs = Blog::where('status', '1')->limit('3')->get();
+		//dd($blogs);
+        return view('site.index',['sliders'=>$sliders,'services'=>$services,'categories'=>$categories,'blogs'=>$blogs]);
          
     } 
 	
