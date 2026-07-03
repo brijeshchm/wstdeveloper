@@ -1,7 +1,7 @@
 @extends('site.layouts.app')
 @section('title')
 Contact WebSolutionTechnology | Get Expert Software & Web Solutions @endsection 
-@section('keyword')
+@section('keywords')
 contact websolutiontechnology, software company contact, website development inquiry, IT solutions support, web development consultation, software services contact, digital solutions company @endsection
 @section('description')
 Connect with WebSolutionTechnology for professional software development, website design, mobile app development, and IT solutions. Our experts are ready to help transform your ideas into successful digital solutions. @endsection

@@ -2,7 +2,7 @@
 @extends('site.layouts.app')
 @section('title')
 Portfolio | WebSolutionTechnology - Our Website & Software Development Projects @endsection 
-@section('keyword')
+@section('keywords')
 websolutiontechnology portfolio, website development portfolio, software development projects, web design portfolio, ecommerce website projects, mobile app portfolio, digital marketing case studies, IT solutions portfolio @endsection
 @section('description')
 Explore the WebSolutionTechnology portfolio showcasing successful website development, custom software solutions, web applications, eCommerce platforms, mobile apps, and digital marketing projects delivered for businesses across various industries. @endsection

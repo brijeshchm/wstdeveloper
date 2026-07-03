@@ -1,7 +1,7 @@
 @extends('site.layouts.app')
 @section('title')
 Web Solution Technology | Software, Website Development & IT Services Company @endsection 
-@section('keyword')
+@section('keywords')
 Software Development Company, Web Development Services, Website Design Company, Custom Software Solutions, Mobile App Development, eCommerce Website Development, Digital Transformation Services, IT Consulting, Website Maintenance, SEO Services  Web Solution Technology @endsection
 @section('description')
 Web Solution Technology offers expert software development, website design, custom web application development, eCommerce solutions, mobile app development, SEO, digital marketing, and complete IT services to empower businesses with growth-driven digital solutions. @endsection

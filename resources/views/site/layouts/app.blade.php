@@ -156,7 +156,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                 <nav class="navbar navbar-expand-lg navbar-light p-0">
                                     <div class="navbar-header navbar-header-custom">
                                         <!-- start logo -->
-                                        <a href="{{url('/')}}"><img src="{{asset('site/img/logos/webs.png')}}" alt="..." width="150" height="200"></a>
+                                        <a href="{{route('home')}}"><img src="{{asset('site/img/logos/webs.png')}}" alt="..." width="150" height="200"></a>
                                         <!-- end logo -->
                                     </div>
 

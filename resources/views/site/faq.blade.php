@@ -1,7 +1,7 @@
 @extends('site.layouts.app')
 @section('title')
 FAQ | WebSolutionTechnology - Frequently Asked Questions @endsection 
-@section('keyword')
+@section('keywords')
 websolutiontechnology faq, website development questions, software development faq, web design support, digital marketing faq, SEO services questions, IT solutions help, website maintenance support, web hosting faq @endsection
 @section('description')
 Find answers to frequently asked questions about website development, software solutions, digital marketing, SEO services, web hosting, and IT support. Get expert guidance from WebSolutionTechnology.@endsection

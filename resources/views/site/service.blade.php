@@ -1,7 +1,7 @@
 @extends('site.layouts.app')
 @section('title')
 Professional IT Services & Business Solutions | Web Development, Software & Digital Marketing @endsection 
-@section('keyword')
+@section('keywords')
 IT Services, Business Solutions, Web Development Services, Software Development, Website Design, Web Application Development, Digital Marketing Services, SEO Services, Mobile App Development, Ecommerce Development, Content Writing Services, Graphic Design Services, IT Consulting, Technology Solutions, Online Business Growth @endsection
 @section('description')
 Explore professional IT services and business solutions including website development, software development, web applications, digital marketing, SEO, content writing, ecommerce solutions, and technology consulting. We deliver innovative, scalable, and result-driven solutions to help businesses grow and succeed online. @endsection

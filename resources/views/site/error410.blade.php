@@ -1,7 +1,7 @@
 @extends('site.layouts.appError')
 @section('title')
 Page not found @endsection 
-@section('keyword')
+@section('keywords')
 Page not found @endsection
 @section('description')
 Page not found @endsection

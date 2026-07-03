@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <title>@yield('title')</title>
-<meta name="keywords" content="@yield('keyword')">
+<meta name="keywords" content="@yield('keywords')">
 <meta name="description" content="@yield('description')">
 <meta name="csrf-token" content="<?php echo csrf_token(); ?>">
 <meta name="google-site-verification" content="LFZ78S5IvrX1soxewYLtjXZXo8gCefgIMMJAtgf4QuM" /> 

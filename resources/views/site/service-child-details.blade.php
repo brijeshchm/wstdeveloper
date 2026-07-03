@@ -1,7 +1,7 @@
 @extends('site.layouts.app')
 @section('title')
 {{ !empty($serviceChildDetails->meta_title) ? $serviceChildDetails->meta_title : 'WebSolutionTechnology - Website Development & Software Solutions' }}@endsection
-@section('keyword')
+@section('keywords')
 {{ !empty($serviceChildDetails->meta_keywords) ? $serviceChildDetails->meta_keywords : 'website development, software development, web design, SEO services, digital marketing, IT solutions' }}@endsection
 @section('description')
 {{ !empty($serviceChildDetails->meta_description) ? $serviceChildDetails->meta_description : 'WebSolutionTechnology provides website development, software development, digital marketing, SEO, web hosting, and IT solutions for businesses worldwide.' }}@endsection
