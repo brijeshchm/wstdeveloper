@@ -201,7 +201,7 @@
                                 <div class="col-sm-12">
                                     <label>About Blog</label>
                                     <div class="form-group">
-                                        <textarea rows="4" class="form-control no-resize" name="about_blog">{{ old('about_blog', $edit_data->about_blog ?? '') }}</textarea>
+                                        <textarea rows="4" class="form-control no-resize summernote" name="about_blog">{{ old('about_blog', $edit_data->about_blog ?? '') }}</textarea>
                                     </div>
                                 </div>
                             </div>
@@ -265,7 +265,7 @@
                     <div class="col-sm-12">
                         <label>Blog Description</label>
                         <div class="form-group">
-                            <textarea rows="4" class="form-control no-resize" name="blog_description">{{ old('blog_description', $edit_data->blog_description ?? '') }}</textarea>
+                            <textarea rows="4" class="form-control no-resize summernote" name="blog_description">{{ old('blog_description', $edit_data->blog_description ?? '') }}</textarea>
                         </div>
                     </div>
                 </div>
@@ -285,7 +285,7 @@
                                 <div class="col-sm-12">
                                     <label>Top Content</label>
                                     <div class="form-group">
-                                        <textarea rows="4" class="form-control no-resize" name="top_content">{{ old('top_content', $edit_data->top_content ?? '') }}</textarea>
+                                        <textarea rows="4" class="form-control no-resize summernote" name="top_content">{{ old('top_content', $edit_data->top_content ?? '') }}</textarea>
                                     </div>
                                 </div>
                             </div>
@@ -303,13 +303,13 @@
                                 <div class="col-sm-12">
                                     <label>Bottom Content</label>
                                     <div class="form-group">
-                                        <textarea rows="4" class="form-control no-resize" name="bottom_content">{{ old('bottom_content', $edit_data->bottom_content ?? '') }}</textarea>
+                                        <textarea rows="4" class="form-control no-resize summernote" name="bottom_content">{{ old('bottom_content', $edit_data->bottom_content ?? '') }}</textarea>
                                     </div>
                                 </div>
                                 <div class="col-sm-12">
                                     <label>Conclusion</label>
                                     <div class="form-group">
-                                        <textarea rows="4" class="form-control no-resize" name="conclusion">{{ old('conclusion', $edit_data->conclusion ?? '') }}</textarea>
+                                        <textarea rows="4" class="form-control no-resize summernote" name="conclusion">{{ old('conclusion', $edit_data->conclusion ?? '') }}</textarea>
                                     </div>
                                 </div>
 
@@ -502,13 +502,18 @@
     </div>
 </div>
 
-<script src="{{asset('admin/assets/vendor/ckeditor/ckeditor.js')}}"></script>
-<script src="{{asset('admin/assets/js/blogController.js')}}"></script>
-<script>
-if (document.getElementById('ckeditor')) {
-    CKEDITOR.replace('ckeditor');
-    CKEDITOR.config.height = 300;
-}
+ 
+
+ 
+ <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+<script type="text/javascript">
+$('.summernote').summernote({
+height: 500
+});
 </script>
 
 @endsection
