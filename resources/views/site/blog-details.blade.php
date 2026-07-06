@@ -170,7 +170,7 @@
                 <div class="about-blog-card">
                     <h2 class="about-blog-heading">{{ $blogDetails['about_heading'] }}</h2>
                     <div class="about-blog-rule"></div>
-                    <p class="about-blog-text mb-4">{{ $blogDetails['about_blog'] }}</p>
+                    <p class="about-blog-text mb-4">{!! $blogDetails['about_blog'] !!}</p>
 
                     @if(count($paragraphs))
                     <ul class="list-unstyled about-blog-list mb-0">
