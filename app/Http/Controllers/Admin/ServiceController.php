@@ -376,7 +376,10 @@ class ServiceController extends Controller
 		$services = 	services::orderBy('id','desc');		 
 		if($request->input('search.value')!==''){
 				$services = $services->where(function($query) use($request){
-					$query->orWhere('name','LIKE','%'.$request->input('search.value').'%');					     		   
+					$query->orWhere('name','LIKE','%'.$request->input('search.value').'%')
+					->orWhere('slug','LIKE','%'.$request->input('search.value').'%')					     		   
+					->orWhere('meta_title','LIKE','%'.$request->input('search.value').'%')					     		   
+					->orWhere('service_slug','LIKE','%'.$request->input('search.value').'%');	
 						   
 				});
 			}

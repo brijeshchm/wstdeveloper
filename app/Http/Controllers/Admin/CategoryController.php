@@ -283,7 +283,10 @@ class CategoryController extends Controller
 		$categorys = 	Categories::orderBy('id','desc');		 
 		if($request->input('search.value')!==''){
 				$categorys = $categorys->where(function($query) use($request){
-					$query->orWhere('name','LIKE','%'.$request->input('search.value').'%');					     		   
+					$query->orWhere('name','LIKE','%'.$request->input('search.value').'%')	
+					->orWhere('slug','LIKE','%'.$request->input('search.value').'%')					     		   
+					->orWhere('meta_title','LIKE','%'.$request->input('search.value').'%')					     		   
+					->orWhere('category_slug','LIKE','%'.$request->input('search.value').'%');			     		   
 						   
 				});
 			}
