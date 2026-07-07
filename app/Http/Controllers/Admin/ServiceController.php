@@ -198,7 +198,7 @@ class ServiceController extends Controller
 				//echo $request->input('categories_id');die;
 				$categoriesName = Categories::where('id',$request->input('categories_id'))->first()->name;				 
 				$services->slug =  strtolower(str_replace(".","",(str_replace(" ",'-',$categoriesName))));		
-				$services->service_slug =  strtolower(str_replace(".","",(str_replace(" ",'-',$request->input('name')))));	
+				$services->service_slug =  trim($request->input('service_slug'));	
 				$services->meta_title = $request->input('meta_title');	
 			 
 				$services->meta_keyword = $request->input('meta_keyword');	

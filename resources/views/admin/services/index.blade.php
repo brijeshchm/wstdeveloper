@@ -82,10 +82,19 @@
 								</select>
 									</div>
 								</div>
+
+								 
 								 <div class="col-sm-6">
 									  <label>Service Name</label>
                                     <div class="form-group">
                                         <input type="text" class="form-control" name ="name" value="{{ old('name',(isset($edit_data)) ? $edit_data->name:"")}}" placeholder="Enter product Name">
+                                    </div>
+                                </div>
+
+								<div class="col-sm-6">
+                                    <label>Service slug</label>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" name ="service_slug" value="{{ old('service_slug',(isset($edit_data)) ? $edit_data->service_slug:"")}}" placeholder="Enter Service slug">
                                     </div>
                                 </div>
 								<div class="col-sm-6">
@@ -94,7 +103,7 @@
                                         <input type="text" class="form-control" name ="meta_title" value="{{ old('meta_title',(isset($edit_data)) ? $edit_data->meta_title:"")}}" placeholder="Enter meta itle">
                                     </div>
                                 </div>
-								
+									
 								<div class="col-sm-6">
                                     <label>Meta Keyword</label>
                                     <div class="form-group">
