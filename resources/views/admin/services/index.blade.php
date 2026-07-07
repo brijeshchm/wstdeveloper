@@ -184,7 +184,7 @@
                                 <div class="col-sm-12">
                                     <label>Description One</label>
 								    <div class="form-group ">
-									    <textarea rows="4"  class="form-control no-resize" name="description_one">{{ old('description_one',(isset($edit_data)) ? $edit_data->description_one:"")}}</textarea>
+									    <textarea rows="4"  class="form-control no-resize summernote" name="description_one">{{ old('description_one',(isset($edit_data)) ? $edit_data->description_one:"")}}</textarea>
 								    </div>
 							    </div>
 							</div>
@@ -231,7 +231,7 @@
                                 <div class="col-sm-12">
                                     <label>Description Two</label>
 								    <div class="form-group ">
-									    <textarea rows="4"  class="form-control no-resize" name="description_two">{{ old('description_two',(isset($edit_data)) ? $edit_data->description_two:"")}}</textarea>
+									    <textarea rows="4"  class="form-control no-resize summernote" name="description_two">{{ old('description_two',(isset($edit_data)) ? $edit_data->description_two:"")}}</textarea>
 								    </div>
 							    </div>
 							</div>
@@ -279,7 +279,7 @@
                                 <div class="col-sm-12">
                                     <label>Description Three</label>
 								    <div class="form-group ">
-									    <textarea rows="4"  class="form-control no-resize" name="description_three">{{ old('description_three',(isset($edit_data)) ? $edit_data->description_three:"")}}</textarea>
+									    <textarea rows="4"  class="form-control no-resize summernote" name="description_three">{{ old('description_three',(isset($edit_data)) ? $edit_data->description_three:"")}}</textarea>
 								    </div>
 							    </div>
 							</div>
@@ -329,7 +329,7 @@
                                 <div class="col-sm-12">
                                     <label>Description Four</label>
 								    <div class="form-group ">
-									    <textarea rows="4"  class="form-control no-resize" name="description_four">{{ old('description_four',(isset($edit_data)) ? $edit_data->description_four:"")}}</textarea>
+									    <textarea rows="4"  class="form-control no-resize summernote" name="description_four">{{ old('description_four',(isset($edit_data)) ? $edit_data->description_four:"")}}</textarea>
 								    </div>
 							    </div>
 							</div>
@@ -536,11 +536,18 @@
     </div>
     
 </div>
-<script src="{{asset('admin/assets/vendor/ckeditor/ckeditor.js')}}"></script>
+ 
 
-<script>
-CKEDITOR.replace('ckeditor');
-CKEDITOR.config.height = 300;
+
+ 
+ <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+<script type="text/javascript">
+$('.summernote').summernote({
+height: 500
+});
 </script>
-
  @endsection

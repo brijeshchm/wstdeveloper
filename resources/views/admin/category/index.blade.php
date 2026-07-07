@@ -183,7 +183,7 @@
                                 <div class="col-sm-12">
                                     <label>About</label>
 								    <div class="form-group ">
-									    <textarea rows="4"  class="form-control no-resize" name="about">{{ old('about',(isset($edit_data)) ? $edit_data->about:"")}}</textarea>
+									    <textarea rows="4"  class="form-control no-resize summernote" name="about">{{ old('about',(isset($edit_data)) ? $edit_data->about:"")}}</textarea>
 								    </div>
 							    </div>
 							</div>
@@ -422,5 +422,14 @@
     </div>
     
 </div>
-
+ <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+<script type="text/javascript">
+$('.summernote').summernote({
+height: 500
+});
+</script>
  @endsection
