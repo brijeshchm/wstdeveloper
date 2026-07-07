@@ -1,7 +1,7 @@
 @extends('site.layouts.app')
-@section('title', 'QuickDials - Trusted Local Business Listings')
-@section('description', 'Explore the best services with QuickDials. Find verified businesses, contact details, reviews, ratings, photos, addresses, and trusted local service providers near you.')
-@section('keywords',  'best top services, verified businesses, local business directory, QuickDials listings, reviews and ratings, nearby services, trusted businesses, contact details, local search engine')
+@section('title', 'Web Solution Technology - Trusted Local Business Listings')
+@section('description', 'Explore the best services with Web Solution Technology. Find verified businesses, contact details, reviews, ratings, photos, addresses, and trusted local service providers near you.')
+@section('keywords',  'best top services, verified businesses, local business directory, Web Solution Technology listings, reviews and ratings, nearby services, trusted businesses, contact details, local search engine')
 @section('content')
 
 <div class="listing-page bg-light min-vh-100">
