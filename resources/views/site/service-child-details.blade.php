@@ -267,43 +267,7 @@ if (!empty($serviceChildDetails->name)) {
                                 
                                 
                                 
-                                
-                                <div class="card mb-3">
-                                    <div class="card-header" id="headingOne">
-                                        <h5 class="mb-0">
-                                            <button class="btn btn-link" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">1. Why we are best company?</button>
-                                        </h5>
-                                    </div>
-                                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-bs-parent="#accordion">
-                                        <div class="card-body">
-                                            Web Solution Technology stands out as the best company because of our commitment to delivering innovative, high-quality digital solutions with a customer-first approach, backed by a skilled team and years of industry experience.
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card mb-3">
-                                    <div class="card-header" id="headingTwo">
-                                        <h5 class="mb-0">
-                                            <button class="btn btn-link collapsed" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">2. How the template process works?</button>
-                                        </h5>
-                                    </div>
-                                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-bs-parent="#accordion">
-                                        <div class="card-body">
-                                           At Web Solution Technology, the template process works by seamlessly integrating dynamic data into reusable design structures, allowing us to deliver consistent, efficient, and scalable web solutions tailored to each client's needs.
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card">
-                                    <div class="card-header" id="headingThree">
-                                        <h5 class="mb-0">
-                                            <button class="btn btn-link collapsed" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">3. What should be listed on a business card?</button>
-                                        </h5>
-                                    </div>
-                                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-bs-parent="#accordion">
-                                        <div class="card-body">
-                                            A business card for Web Solution Technology should include the company name, logo, tagline, contact person's name, job title, phone number, email address, website URL, office address, and a brief mention of key services like Web Development, App Development, and Cloud Solutions.
-                                        </div>
-                                    </div>
-                                </div>
+                           
                                 
                                 
                             </div>
