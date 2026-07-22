@@ -94,6 +94,56 @@
             <div class="reveal mb-5" style="transition-delay:0.1s;">
                 <h1 class="article-h1 mb-4">{{ $blogDetails['title'] ?? '' }}</h1>
 
+                @if($blogDetails['rating'])
+                <?php
+						$rating = $blogDetails['rating'];
+						$stars = 'star_4.75_new.png';
+						$ext = '.png';
+						switch ($rating) {
+							case 0:
+								$stars = 'star_1' . $ext;
+								break;
+							case 2:
+								$stars = 'star_2' . $ext;
+								break;
+							case 3:
+								$stars = 'star_3' . $ext;
+								break;
+							case 3.5:
+								$stars = 'star_3.5_new' . $ext;
+								break;
+							case 4:
+								$stars = 'star_4' . $ext;
+								break;
+							case 4.5:
+								$stars = 'star_4.5_new' . $ext;
+								break;
+							case 4.75:
+								$stars = 'star_4.75_new' . $ext;
+								break;
+							case 5:
+								$stars = 'star_5_new' . $ext;
+								break;
+						}
+										?>
+								<div itemscope itemtype="https://schema.org/Product" style="font-size: 12px;font-weight: 500;color:#000;">
+									<div class="text-primary" itemprop="name">
+										<h1 title="<?php  if (!empty($blogDetails['title'])) { $key = $blogDetails['title'];
+							echo trim($key); } ?>"><?php  if (!empty($blogDetails['title'])) { $key = $blogDetails['title'];
+							echo trim($key); } ?></h1>
+									</div>
+									<div itemprop="aggregateRating" itemscope itemtype="https://schema.org/AggregateRating">
+										<img loading="lazy" itemprop="image" src="{{ asset('site/' . $stars) }}"
+											alt="5 Star Rating: Very Good" />
+										<span itemprop="ratingValue"><?php if (!empty($blogDetails['rating'])) {
+							echo number_format((float) $blogDetails['rating'], 1, '.', '');
+						} else {
+							echo "1.0";
+						} ?></span> out of <span itemprop="bestRating">5</span> based on <span itemprop="ratingCount">{{$blogDetails['total_rating'] }}</span> ratings
+									</div>
+								</div>
+					@endif
+
                 <div class="d-flex flex-wrap align-items-center meta-row mb-4" style="gap: 1rem;">
                     {{-- Author --}}
                     @if(!empty($blogDetails['author_name']))

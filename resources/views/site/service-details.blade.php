@@ -101,7 +101,7 @@ if (!empty($categoryDetails->name)) {
 							echo number_format((float) $categoryDetails->rating, 1, '.', '');
 						} else {
 							echo "1.0";
-						} ?></span> out of <span itemprop="bestRating"></span>based on <span itemprop="ratingCount">{{$categoryDetails->total_rating }}</span> ratings
+						} ?></span> out of <span itemprop="bestRating">5</span> based on <span itemprop="ratingCount">{{$categoryDetails->total_rating }}</span> ratings
 									</div>
 								</div>
 					@endif
