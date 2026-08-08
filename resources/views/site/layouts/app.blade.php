@@ -321,9 +321,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <a href="{{ route('contact-us') }}" class="footer-link">Contact Us</a>
     </li>
 
-    <!-- <li class="mb-2">
-        <a href="{{ route('careers') }}" class="footer-link">Careers</a>
-    </li> -->
+    
 
     <li class="mb-2">
         <a href="{{ route('blog.list') }}" class="footer-link">Blog</a>
