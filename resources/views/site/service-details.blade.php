@@ -6,8 +6,6 @@
 @section('description')
 {{ !empty($categoryDetails->descripion) ? $categoryDetails->descripion : 'WebSolutionTechnology provides website development, software development, digital marketing, SEO, web hosting, and IT solutions for businesses worldwide.' }} @endsection
 @section('content')
-
-
 @php
 $schemaservice = [];
 
@@ -50,13 +48,13 @@ if (!empty($categoryDetails->name)) {
                         </div>
 					
                         <ul>
-                            <li><a href="{{url('/')}}">Home</a></li>
-                            <li><a href="{{url('services')}}"> Serivce</a></li>
+                            <li><a href="{{route('home')}}">Home</a></li>
+                            <li><a href="{{route('services.list')}}"> Serivce</a></li>
                         </ul>
 						
 						{{-- Replace text-yellow-400 with this exact color --}}
  
-@if(!empty($categoryDetails))
+                            @if(!empty($categoryDetails))
 								<?php
 						$rating = $categoryDetails->rating;
 						$stars = 'star_4.75_new.png';
@@ -156,9 +154,9 @@ if (!empty($categoryDetails->name)) {
                                     </div>
                                 </div>
                                 <div class="flex-grow-1 ms-3 ms-lg-4">
-                                    <h3 class="h5 mb-3"><a href="{{url('services/'.$categoryDetails->slug.'/'.$service->service_slug)}}"><?php echo $service->name; ?> </a></h3>
+                                    <h3 class="h5 mb-3"><a href="{{route('child.details',['slug'=>$categoryDetails->slug,'mslug'=>$service->service_slug])}}"><?php echo $service->name; ?> </a></h3>
                                   
-                                    <a href="{{url('services/'.$categoryDetails->slug.'/'.$service->service_slug)}}"> {{$service->meta_title}}<i class="ti-arrow-right align-middle ms-1"></i></a>
+                                    <span > {{$service->meta_title}}<i class="ti-arrow-right align-middle ms-1"></i></span>
                                 </div>
                             </div>
                         </div>
@@ -443,7 +441,7 @@ document.querySelectorAll('.faq-btn').forEach(btn => {
                 <div class="row text-center justify-content-center">
                     <div class="col-xl-11 wow fadeIn" data-wow-delay="200ms">
                         <h2 class="mb-1-9 display-13 display-sm-8 display-md-6 display-lg-3 text-white">Mission is to Growth Your Business & More</h2>
-                        <a href="{{url('contact-us')}}" class="btn-style1 white-border"><span>Contact Us</span></a>
+                        <a href="{{route('contact-us')}}" class="btn-style1 white-border"><span>Contact Us</span></a>
                     </div>
                 </div>
             </div>

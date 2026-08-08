@@ -34,7 +34,7 @@ Route::post('/register',[App\Http\Controllers\UserAuth\AuthController::class,'sa
 
 
 Route::get('/', [App\Http\Controllers\Site\HomeController::class, 'index'])->name('home');
-Route::get('/home', [App\Http\Controllers\Site\HomeController::class, 'index'])->name('home');
+ 
 Route::get('/about-us', [App\Http\Controllers\Site\HomeController::class, 'aboutUs'])->name('about-us');
 Route::get('/portfolio', [App\Http\Controllers\Site\HomeController::class, 'Portfolio'])->name('portfolio');
 Route::get('/contact-us', [App\Http\Controllers\Site\HomeController::class, 'Contact'])->name('contact-us');
@@ -55,7 +55,7 @@ Route::get('/terms-conditions', [App\Http\Controllers\Site\HomeController::class
 Route::get('/privacy-policy', [App\Http\Controllers\Site\HomeController::class, 'privacypolicy'])->name('privacy.policy');
 Route::get('/copyright-policy', [App\Http\Controllers\Site\HomeController::class, 'copyrightpolicy'])->name('copyright.policy');
 Route::get('/refund-policy', [App\Http\Controllers\Site\HomeController::class, 'refundPolicy'])->name('refund.policy');
-Route::get('/careers', [App\Http\Controllers\Site\HomeController::class, 'careers'])->name('careers');
+//Route::get('/careers', [App\Http\Controllers\Site\HomeController::class, 'careers'])->name('careers');
 Route::get('/blog', [App\Http\Controllers\Site\HomeController::class, 'blog'])->name('blog.list');
 Route::get('/blog/{slug}', [App\Http\Controllers\Site\HomeController::class, 'blogDetails'])->name('blog.details');
 Route::get('/blog/category/{url}',[App\Http\Controllers\Site\HomeController::class, 'blogCategory'])->name('category.blog');

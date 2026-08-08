@@ -9,13 +9,13 @@
 <section class="page-title-section bg-img cover-background mx-lg-1-6 mx-xl-2-5 mx-xxl-2-9 left-overlay-dark" data-overlay-dark="8" data-background="img/banner/page-title.jpg">
 <div class="container">
 <div class="row">
-<div class="col-md-12"><?php //echo "<pre>";print_r($service); die; ?>
+<div class="col-md-12">
 <div class="position-relative">
- 
+
 </div>  
 <ul>
-<li><a href="{{url('/')}}">Home</a></li>
-<li><a href="{{$serviceChildDetails->slug}}">{{$serviceChildDetails->name}}</a></li>
+<li><a href="{{route('home')}}">Home</a></li>
+<li><a href="{{ route('service.details',$serviceChildDetails->slug)}}">{{ str_replace("-", " ", $serviceChildDetails->slug)}}</a></li>
 </ul>
 
 
@@ -131,7 +131,7 @@ if (!empty($serviceChildDetails->name)) {
 									
 									@if(!empty($services))
 										@foreach($services as $service)
-                                        <li class="<?php  if($service->service_slug == $serviceChildDetails->service_slug ){ echo "active"; } ?> "><a href="{{url('services/'.$categories->slug.'/'.$service->service_slug)}}"><span>{{$service->name}}</span></a></li>
+                                        <li class="<?php  if($service->service_slug == $serviceChildDetails->service_slug ){ echo "active"; } ?> "><a href="{{route('child.details',['slug'=>$categories->slug,'mslug'=>$service->service_slug])}}"><span>{{$service->name}}</span></a></li>
 											@endforeach
 										@endif
 									
@@ -140,17 +140,7 @@ if (!empty($serviceChildDetails->name)) {
                                 </div>
                             </div>
                           
-                            <div class="widget bg-secondary wow fadeIn" data-wow-delay="600ms">
-                                <div class="widget-content">
-                                    <h5 class="mb-4 text-white">Follow Us</h5>
-                                    <ul class="social-icon-style2 list-unstyled ps-0">
-                                        <li><a href="#!"><i class="fab fa-facebook-f"></i></a></li>
-                                        <li><a href="#!"><i class="fab fa-twitter"></i></a></li>
-                                        <li><a href="#!"><i class="fab fa-instagram"></i></a></li>
-                                        <li><a href="#!"><i class="fab fa-linkedin-in"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
+                         
                         </div>
                     </div>
                     <div class="col-xl-8 mb-2-9 mb-xl-0 order-1 order-xl-2">

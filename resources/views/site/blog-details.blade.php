@@ -92,8 +92,6 @@
 
             {{-- ── TITLE & META ── --}}
             <div class="reveal mb-5" style="transition-delay:0.1s;">
-                <h1 class="article-h1 mb-4">{{ $blogDetails['title'] ?? '' }}</h1>
-
                 @if($blogDetails['rating'])
                 <?php
 						$rating = $blogDetails['rating'];

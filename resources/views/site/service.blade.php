@@ -17,8 +17,8 @@ Explore professional IT services and business solutions including website develo
                         </div>
 					
                         <ul>
-                            <li><a href="{{url('/')}}">Home</a></li>
-                            <li><a href="{{url('services')}}"> Serivce</a></li>
+                            <li><a href="{{route('home')}}">Home</a></li>
+                            <li><a href="{{route('services.list')}}"> Serivce</a></li>
                         </ul>
                     </div>
  
@@ -66,9 +66,9 @@ Explore professional IT services and business solutions including website develo
                                     </div>
                                 </div>
                                 <div class="flex-grow-1 ms-3 ms-lg-4">
-                                    <h3 class="h5 mb-3"><a href="{{url('services/'.$category->slug)}}"><?php echo $category->name; ?> </a></h3>
+                                    <h3 class="h5 mb-3"><a href="{{route('service.details',$category->slug)}}"><?php echo $category->name; ?> </a></h3>
                                   
-                                    <a href="{{url('services/'.$category->slug)}}"> {{$category->subTital}}<i class="ti-arrow-right align-middle ms-1"></i></a>
+                                    <span> {{$category->subTital}}<i class="ti-arrow-right align-middle ms-1"></i></span>
                                 </div>
                             </div>
                         </div>
@@ -84,7 +84,7 @@ Explore professional IT services and business solutions including website develo
                 <div class="row text-center justify-content-center">
                     <div class="col-xl-11 wow fadeIn" data-wow-delay="200ms">
                         <h2 class="mb-1-9 display-13 display-sm-8 display-md-6 display-lg-3 text-white">Mission is to Growth Your Business & More</h2>
-                        <a href="contact.html" class="btn-style1 white-border"><span>Contact Us</span></a>
+                        <a href="{{ route('contact-us') }}" class="btn-style1 white-border"><span>Contact Us</span></a>
                     </div>
                 </div>
             </div>

@@ -15,8 +15,8 @@ Explore the WebSolutionTechnology portfolio showcasing successful website develo
                             <h1>Portfolio Standard</h1>
                         </div>
                         <ul>
-                            <li><a href="{{url('/')}}">Home</a></li>
-                            <li><a href="#!">Portfolio Standard</a></li>
+                            <li><a href="{{route('home')}}">Home</a></li>
+                            <li><a href="{{ route('portfolio') }}">Portfolio Standard</a></li>
                         </ul>
                     </div>
                 </div>
