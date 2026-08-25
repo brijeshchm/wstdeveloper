@@ -53,8 +53,8 @@ class HomeController extends Controller
 	
 	
 	
-	 public function blog(Request $request)
-{
+	public function blog(Request $request)
+	{
     $blogs = Blog::where('status', '1')
         ->orderBy('id', 'DESC')
         ->get(); // plain Collection — we're slicing manually, so paginate() isn't useful here

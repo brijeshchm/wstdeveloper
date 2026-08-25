@@ -89,7 +89,7 @@ class ServiceController extends Controller
 		  $validator = Validator::make($request->all(),[	
 					'name' => 'required|unique:services,name|min:3|max:25',				 
 					'meta_title' => 'required',
-					'meta_keyword' => 'required',
+				
 					'meta_description' => 'required',				 
 					//'description' => 'required',
 					'categories_id' => 'required',
@@ -179,7 +179,7 @@ class ServiceController extends Controller
 				
 					'name' 	=> 'required|max:255|unique:services,name,'.$id.',id',	
 				 	'meta_title' => 'required',
-					'meta_keyword' => 'required',
+				
 					'meta_description' => 'required',		 
 					'categories_id' => 'required',		 
 			 
