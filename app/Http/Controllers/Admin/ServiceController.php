@@ -87,7 +87,7 @@ class ServiceController extends Controller
         if($request->ajax()){ 
 		
 		  $validator = Validator::make($request->all(),[	
-					'name' => 'required|unique:services,name|min:3|max:25',				 
+					'name' => 'required|unique:services,name|min:3|max:250',				 
 					'meta_title' => 'required',
 				
 					'meta_description' => 'required',				 
