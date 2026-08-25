@@ -1,10 +1,10 @@
 @extends('site.layouts.app')
 @section('title')
-Website Development, App Development | Web Solution Technology @endsection 
+Website & App Development Services | Web Solution Technology @endsection 
 @section('keywords')
 Web Solution Technology, website development services,  digital marketing agency, SEO services, search engine optimization, ecommerce website development, Responsive web design, professional  custom web applications, mobile-friendly websites. @endsection
 @section('description')
-Web Solution Technology is a trusted IT solutions company specializing in website development, web application development, digital marketing, SEO .@endsection
+Web Solution Technology is a trusted IT solutions company offering website development, web application development, digital marketing, and SEO services to help businesses grow online.@endsection
 @section('content')
 <style>
     .banner-section {
