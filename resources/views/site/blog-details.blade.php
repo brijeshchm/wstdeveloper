@@ -83,10 +83,7 @@
                     @endif
 
                     <div class="hero-overlay"></div>
-
-                    <div class="hero-badge">
-                        <span>{{ $blogDetails['title'] ?? '' }}</span>
-                    </div>
+ 
                 </div>
             </div>
 

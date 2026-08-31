@@ -328,9 +328,10 @@ class HomeController extends Controller
 	{
 	    
 	     $categoryList = Categories::where('status', '1')->get();
+	     $blogs = Blog::where('status', '1')->get();
  
 		
-		return response()->view('site.sitemap', ['categoryList' => $categoryList])
+		return response()->view('site.sitemap', ['categoryList' => $categoryList,'blogs'=>$blogs])
     ->header('Content-Type', 'application/xml');
  
 	}

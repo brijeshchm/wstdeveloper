@@ -63,13 +63,15 @@ foreach($serviceList as $serviceValue){
 <lastmod>{{ \Carbon\Carbon::parse($serviceValue->updated_at)->toAtomString() }}</lastmod>
 <priority>0.80</priority>
 </url>
-<?php  } } ?>
+<?php  } } ?><?php } } 
+     if($blogs){
+foreach($blogs as $blog){   ?>
+<url>
+<loc>{{url('blog/'.$blog->slug)}}</loc>
+<lastmod>{{ \Carbon\Carbon::parse($blog->updated_at)->toAtomString() }}</lastmod>
+<priority>0.80</priority>
+</url>
 
-
-
-
-
-<?php } } ?>
-     
+	 <?php  } }?>
     
 </urlset>
