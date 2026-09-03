@@ -1,10 +1,8 @@
 @extends('site.layouts.app')
 @section('title')
-Contact WebSolutionTechnology | Get Expert Software & Web Solutions @endsection 
-@section('keywords')
-contact websolutiontechnology, software company contact, website development inquiry, IT solutions support, web development consultation, software services contact, digital solutions company @endsection
+Contact Web Solution Technology | Expert Software & Web Solutions @endsection  
 @section('description')
-Connect with WebSolutionTechnology for professional software development, website design, mobile app development, and IT solutions. Our experts are ready to help transform your ideas into successful digital solutions. @endsection
+Connect with Web Solution Technology for professional software development, website design, mobile app development, and IT solutions. Our experts are ready to turn your ideas into successful digital solutions. @endsection
 @section('content')
       <section class="page-title-section bg-img cover-background mx-lg-1-6 mx-xl-2-5 mx-xxl-2-9 left-overlay-dark" data-overlay-dark="8" data-background="img/banner/page-title.jpg">
             <div class="container">
